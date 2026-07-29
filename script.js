@@ -502,8 +502,7 @@ function initProjectModal() {
    -------------------------------------------------------------------------- */
 function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
+    if (!navbar) return;
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -512,12 +511,64 @@ function initNavbarScroll() {
             navbar.classList.remove('scrolled');
         }
     });
+}
 
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
+function initMobileNav() {
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navbar = document.getElementById('navbar');
+    if (!mobileToggle || !navMenu) return;
+
+    const toggleIcon = mobileToggle.querySelector('i');
+
+    function closeNav() {
+        navMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        if (toggleIcon) {
+            toggleIcon.className = 'fa-solid fa-bars';
+        }
+        mobileToggle.setAttribute('aria-expanded', 'false');
     }
+
+    function openNav() {
+        navMenu.classList.add('active');
+        mobileToggle.classList.add('active');
+        if (toggleIcon) {
+            toggleIcon.className = 'fa-solid fa-xmark';
+        }
+        mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navMenu.classList.contains('active')) {
+            closeNav();
+        } else {
+            openNav();
+        }
+    });
+
+    // Close when clicking any nav link
+    const navLinks = navMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeNav();
+        });
+    });
+
+    // Close when clicking outside navbar
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && navbar && !navbar.contains(e.target)) {
+            closeNav();
+        }
+    });
+
+    // Clean up on resize to desktop width
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992 && navMenu.classList.contains('active')) {
+            closeNav();
+        }
+    });
 }
 
 /* --------------------------------------------------------------------------
