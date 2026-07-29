@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRASHANT. | AI Engineer & Machine Learning Portfolio</title>
+    <meta name="description" content="Portfolio of Prashant - AI Engineer and Machine Learning Specialist building intelligent systems, full-stack experiences, and real-world AI applications.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- EmailJS Official Browser SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init({
+                    publicKey: "HuWlWN7_jhAeT9u2a",
+                });
+            }
+        })();
+    </script>
+</head>
+<body class="theme-neural">
+    <!-- Interactive Background Canvas -->
+    <canvas id="neuralCanvas"></canvas>
+
+    <!-- Sci-Fi HUD Overlay Grid (Toggleable) -->
+    <div class="hud-grid-overlay" id="hudOverlay"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">PRASHANT<span class="logo-dot">.</span></a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#socials" class="nav-link">Socials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="hud-toggle-btn" id="hudToggleBtn" title="Toggle Sci-Fi HUD Mode">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span class="hud-btn-text">HUD Mode</span>
+                </button>
+                <a href="#contact" class="btn-primary-sm">Get in Touch</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <!-- Clean Text Block, Buttons, Status & Socials -->
+                <div class="hero-content">
+                    <div class="hero-subtitle-badge">
+                        <span class="badge-dot"></span>
+                        <span class="hero-subtitle">AI ENGINEER • MACHINE LEARNING</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Building intelligent <span class="gradient-text">systems</span> that solve real problems.
+                    </h1>
+
+                    <p class="hero-description">
+                        I create AI/ML products and full-stack experiences designed for measurable real-world impact.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-gold">
+                            <i class="fa-solid fa-compass"></i> View Projects
+                        </a>
+                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                        </a>
+                    </div>
+
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        <span class="status-text">Available for AI/ML opportunities</span>
+                    </div>
+
+                    <!-- Hero Social Icons -->
+                    <div class="hero-socials">
+                        <a href="https://github.com/prashant-singh-78" target="_blank" class="social-icon-circle" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/prashant-singh-7047572a0" target="_blank" class="social-icon-circle" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:prashantbachhamadi@gmail.com" class="social-icon-circle" title="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="https://www.instagram.com/prashant_singh_08__/" target="_blank" class="social-icon-circle" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/prashant.seenu.10" target="_blank" class="social-icon-circle" title="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unblocked Visual Area -->
+                <div class="hero-visual-space"></div>
+            </div>
+        </section>
+
+        <!-- Sci-Fi HUD Telemetry Bar -->
+        <section class="hud-telemetry-bar">
+            <div class="telemetry-wrapper">
+                <div class="tel-item">
+                    <i class="fa-solid fa-bolt text-crimson"></i>
+                    <span class="t-label">LATENCY:</span>
+                    <span class="t-value">18ms</span>
+                </div>
+                <div class="tel-item">
+                    <i class="fa-solid fa-chart-line text-gold"></i>
+                    <span class="t-label">THROUGHPUT:</span>
+                    <span class="t-value">1.42K req/min</span>
+                </div>
+                <div class="tel-item">
+                    <i class="fa-solid fa-bullseye text-crimson"></i>
+                    <span class="t-label">MODEL ACCURACY:</span>
+                    <span class="t-value">98.7%</span>
+                </div>
+                <div class="tel-item">
+                    <i class="fa-solid fa-circle-check text-green"></i>
+                    <span class="t-label">STATUS:</span>
+                    <span class="t-value">OPERATIONAL</span>
+                </div>
+                <div class="tel-item">
+                    <i class="fa-solid fa-rocket text-gold"></i>
+                    <span class="t-label">DEPLOYMENTS:</span>
+                    <span class="t-value">15+ PRODUCTION</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 01. WHO I AM</span>
+                    <h2 class="section-title">About Me & Background</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Profile Photo Card in About Section -->
+                    <div class="about-profile-card">
+                        <div class="profile-frame">
+                            <img src="assets/profile.jpg" alt="Prashant Profile" class="profile-img" id="userProfileImg">
+                            <div class="profile-hud-tag">
+                                <span class="hud-label">DEGREE</span>
+                                <span class="hud-val">B.TECH CS (AI)</span>
+                            </div>
+                            
+                            <!-- Interactive Photo Replace Overlay -->
+                            <label for="photoUploadInput" class="photo-upload-overlay" title="Click to upload your custom photo">
+                                <i class="fa-solid fa-camera"></i>
+                                <span>Change Photo</span>
+                            </label>
+                            <input type="file" id="photoUploadInput" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="about-card glass-panel">
+                        <div class="card-corner corner-tl"></div>
+                        <div class="card-corner corner-br"></div>
+                        <h3 class="about-heading"><i class="fa-solid fa-graduation-cap text-gold"></i> B.Tech Computer Science (AI) Student</h3>
+                        <p class="about-text">
+                            Hello! I'm <strong>Prashant</strong>, a passionate Machine Learning student at <strong>Arya Institute of Engineering Technology And Management, Jaipur</strong> (2023 – Expected 2027) with strong Python and AI problem-solving skills.
+                        </p>
+                        <p class="about-text">
+                            I specialize in building intelligent AI solutions, computer vision models, and automation systems. I am eager to apply technical knowledge and problem-solving skills to real-world Machine Learning & full-stack software development projects. I am based in <strong>Jaipur, India</strong>.
+                        </p>
+                        
+                        <div class="about-highlights">
+                            <div class="h-item">
+                                <i class="fa-solid fa-trophy text-gold"></i>
+                                <div>
+                                    <h4>Winner – VGU National Project Exhibition (2025)</h4>
+                                    <p>Achieved 1st rank for innovative AI-powered solution demonstration.</p>
+                                </div>
+                            </div>
+                            <div class="h-item">
+                                <i class="fa-solid fa-code-compare text-crimson"></i>
+                                <div>
+                                    <h4>Hackathon Champion & Mentor</h4>
+                                    <p>Rajasthan Digifest × TiE Hackathon, Hackstorm 24-Hr, Sphinx'25 MNIT Jaipur, Edu Chain Builders Connect.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certificates Timeline Grid -->
+                <div class="resume-matrix-grid">
+                    <!-- Education Box -->
+                    <div class="matrix-card glass-panel">
+                        <h3 class="matrix-title"><i class="fa-solid fa-university text-gold"></i> Education & Academic Performance</h3>
+                        <div class="matrix-list">
+                            <div class="matrix-item">
+                                <div class="m-header">
+                                    <strong>B.Tech in Computer Science (AI)</strong>
+                                    <span class="m-date">2023 – 2027 (Expected)</span>
+                                </div>
+                                <span class="m-sub">Arya Institute of Engineering Technology And Management, Jaipur</span>
+                            </div>
+                            <div class="matrix-item">
+                                <div class="m-header">
+                                    <strong>Class XII (Senior Secondary)</strong>
+                                    <span class="m-score text-gold">87.77%</span>
+                                </div>
+                                <span class="m-sub">Schooling Education</span>
+                            </div>
+                            <div class="matrix-item">
+                                <div class="m-header">
+                                    <strong>Class X (Secondary School)</strong>
+                                    <span class="m-score text-green">90.00%</span>
+                                </div>
+                                <span class="m-sub">Secondary Education</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements & Experience Box -->
+                    <div class="matrix-card glass-panel">
+                        <h3 class="matrix-title"><i class="fa-solid fa-award text-crimson"></i> Hackathons & Key Achievements</h3>
+                        <div class="matrix-list">
+                            <div class="matrix-item">
+                                <strong>🏆 Winner – VGU National Project Exhibition (2025)</strong>
+                            </div>
+                            <div class="matrix-item">
+                                <strong>🔥 Hackstorm 24-Hour Hackathon (Oct–Nov 2025)</strong>
+                            </div>
+                            <div class="matrix-item">
+                                <strong>🚀 Rajasthan Digifest × TiE Hackathon (Dec 2025)</strong>
+                            </div>
+                            <div class="matrix-item">
+                                <strong>📜 Edu Chain Builders Connect – Graduation Certificate (2025)</strong>
+                            </div>
+                            <div class="matrix-item">
+                                <strong>⚡ Sphinx'25 Hackathon, MNIT Jaipur (Sept 2024)</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 02. TECHNICAL MATRIX</span>
+                    <h2 class="section-title">Skills & Capabilities</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <!-- Skill Categories -->
+                <div class="skills-grid">
+                    <!-- Category 1: AI & Data Science -->
+                    <div class="skill-category-card glass-panel">
+                        <div class="category-header">
+                            <i class="fa-solid fa-brain skill-cat-icon text-crimson"></i>
+                            <h3>AI & Data Science</h3>
+                        </div>
+                        
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python & NumPy / Pandas</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Scikit-learn & Machine Learning</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>TensorFlow & PyTorch</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>YOLOv8 & Matplotlib Data Viz</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-pills">
+                            <span class="pill">Python</span>
+                            <span class="pill">NumPy</span>
+                            <span class="pill">Matplotlib</span>
+                            <span class="pill">Scikit-learn</span>
+                            <span class="pill">Pandas</span>
+                            <span class="pill">YOLOv8</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Languages & Frameworks -->
+                    <div class="skill-category-card glass-panel">
+                        <div class="category-header">
+                            <i class="fa-solid fa-code skill-cat-icon text-gold"></i>
+                            <h3>Languages & Web Frameworks</h3>
+                        </div>
+                        
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python & Flask</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 92%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>C Language & SQL</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML5 & CSS3 Design</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript & React</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="pill">Python</span>
+                            <span class="pill">C</span>
+                            <span class="pill">Flask</span>
+                            <span class="pill">SQL</span>
+                            <span class="pill">JavaScript</span>
+                            <span class="pill">HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Tools, Platforms & Soft Skills -->
+                    <div class="skill-category-card glass-panel">
+                        <div class="category-header">
+                            <i class="fa-solid fa-gears skill-cat-icon text-green"></i>
+                            <h3>Tools, Platforms & Soft Skills</h3>
+                        </div>
+                        
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git & Linux CLI</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Cursor & VS Code</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Arduino IDE & Hardware Prototyping</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 82%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Leadership & Communication</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="pill">Git</span>
+                            <span class="pill">Linux</span>
+                            <span class="pill">Arduino IDE</span>
+                            <span class="pill">Cursor</span>
+                            <span class="pill">VS Code</span>
+                            <span class="pill">Leadership</span>
+                            <span class="pill">Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Dynamic with Hover Animations & Clickable Live Links) -->
+        <section class="projects-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 04. FEATURED WORK</span>
+                    <h2 class="section-title">Projects & Systems</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <!-- Filter Controls & Live Search Bar -->
+                <div class="project-toolbar">
+                    <div class="project-filters">
+                        <button class="filter-btn active" data-filter="all" onclick="filterProjectCategory('all', this)">All Projects</button>
+                        <button class="filter-btn" data-filter="ai" onclick="filterProjectCategory('ai', this)">AI / ML</button>
+                        <button class="filter-btn" data-filter="llm" onclick="filterProjectCategory('llm', this)">LLM & Agents</button>
+                        <button class="filter-btn" data-filter="web" onclick="filterProjectCategory('web', this)">Full-Stack Web</button>
+                    </div>
+
+                    <div class="project-search-container">
+                        <div class="project-search-wrapper">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search projects (e.g. Python, YOLO, RAG)..." oninput="filterProjectSearch(this.value)">
+                        </div>
+                        <span class="search-count-badge" id="searchCountBadge">16 Projects</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic & Pre-rendered Projects Grid (100% Instant Visibility) -->
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="project-card" data-id="1" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Deta Hub" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">A modern full-stack web application built with clean architecture, interactive UI components, and fast deployment.</p>
+                                <div class="project-actions">
+                                    <a href="https://deta-hub.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">FULL-STACK WEB</span>
+                            <h3 class="project-title">Deta Hub</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Vite</span><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="2" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Snake Verse" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Interactive web game featuring custom canvas rendering, smooth game loop mechanics, score tracking & sound FX.</p>
+                                <div class="project-actions">
+                                    <a href="https://snake-verse-five.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">CANVAS & GAME DEV</span>
+                            <h3 class="project-title">Snake Verse</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML5 Canvas</span><span class="tech-pill">JavaScript</span><span class="tech-pill">CSS3</span><span class="tech-pill">Vercel</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="3" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80" alt="Skill.Nova Platform" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Responsive online learning platform featuring career-oriented courses, guided learning paths, and AI chatbot.</p>
+                                <div class="project-actions">
+                                    <a href="https://courses-plateform.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">EDTECH PLATFORM</span>
+                            <h3 class="project-title">Skill.Nova Platform</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Vite</span><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="4" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="StudyShield" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Student productivity platform blocking distracting websites, YouTube Study Mode, focus streaks & leaderboards.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/SWD.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/SWD.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">PRODUCTIVITY & EXTENSION</span>
+                            <h3 class="project-title">StudyShield</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">SQLite</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="5" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Management SaaS — NovaERP" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Company management platform combining HR operations, attendance, payroll, CRM, inventory & role-based dashboards.</p>
+                                <div class="project-actions">
+                                    <a href="https://management-saa-s-six.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">ENTERPRISE SAAS</span>
+                            <h3 class="project-title">Management SaaS — NovaERP</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">Next.js</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Tailwind</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="6" data-category="llm">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Mockmate" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">AI-powered interview preparation & skill-verification platform with resume analysis & technical viva assessments.</p>
+                                <div class="project-actions">
+                                    <a href="https://mockmate-sandy.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">AI INTERVIEW & SKILL PASSPORT</span>
+                            <h3 class="project-title">Mockmate</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">OpenAI</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="7" data-category="llm">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="AI Coach" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Intelligent career preparation platform with ATS resume scoring, job matching & Gemini AI interview practice.</p>
+                                <div class="project-actions">
+                                    <a href="https://ai-coach-ochre-pi.vercel.app" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">CAREER & ATS AI</span>
+                            <h3 class="project-title">AI Coach</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Gemini API</span><span class="tech-pill">spaCy</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="8" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80" alt="StreamLite" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Subscription-based video platform with user authentication, video uploading & admin management dashboard.</p>
+                                <div class="project-actions">
+                                    <a href="https://streamlite-vrvp.vercel.app/" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">MEDIA STREAMING</span>
+                            <h3 class="project-title">StreamLite</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Node.js</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="9" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Anime Verse" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Naruto-themed interactive website with character exploration, battle logs, quiz & animated visual elements.</p>
+                                <div class="project-actions">
+                                    <a href="https://prashant-singh-78.github.io/anime-verse/" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/anime-verse" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">INTERACTIVE WEB EXPERIENCE</span>
+                            <h3 class="project-title">Anime Verse</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="10" data-category="ai">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" alt="Image.ML" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Machine-learning image classification project trained on custom dataset to differentiate cat vs non-cat images.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/image.ml.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/image.ml.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">MACHINE LEARNING CNN</span>
+                            <h3 class="project-title">Image.ML</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">Keras</span><span class="tech-pill">CNN</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="11" data-category="ai">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Skin Disease Predictor" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">AI-based medical application analyzing uploaded skin images and predicting multi-class skin conditions.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/skin-desease.ml.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/skin-desease.ml.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">HEALTHCARE AI</span>
+                            <h3 class="project-title">Skin Disease Predictor</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">OpenCV</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="12" data-category="ai">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="Medicure" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Smart healthcare platform with patient/doctor registration, emergency ambulance support & ML disease info.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/medicure.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/medicure.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">SMART HEALTHCARE PLATFORM</span>
+                            <h3 class="project-title">Medicure</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">React</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">ML</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="13" data-category="llm">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80" alt="Jarvis — Mikasa Voice Assistant" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Desktop voice assistant automating computer tasks with speech recognition, Gemini API & MediaPipe gesture control.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/jarvis.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/jarvis.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">AI VOICE ASSISTANT</span>
+                            <h3 class="project-title">Jarvis — Mikasa Voice Assistant</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">SpeechRecognition</span><span class="tech-pill">Gemini API</span><span class="tech-pill">MediaPipe</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="14" data-category="ai">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" alt="Krashi Kalyan" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Agriculture support platform providing soil analysis, crop recommendations, disease risk & market prices.</p>
+                                <div class="project-actions">
+                                    <a href="https://github.com/prashant-singh-78/krashi-kalyan.git" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/krashi-kalyan.git" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">AGRITECH & DATA INSIGHTS</span>
+                            <h3 class="project-title">Krashi Kalyan</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Python</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="15" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80" alt="Weather Forecast App" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Real-time weather forecast application displaying live temperature, humidity & conditions for searched cities.</p>
+                                <div class="project-actions">
+                                    <a href="https://prashant-singh-78.github.io/weather-forecast/" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78/weather-forecast" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">REAL-TIME API WEB APP</span>
+                            <h3 class="project-title">Weather Forecast App</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Weather API</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-id="16" data-category="web">
+                        <div class="project-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80" alt="Personal Portfolio (Prashant08)" class="project-img">
+                            <div class="project-hover-overlay">
+                                <p class="hover-desc">Personal developer portfolio showcasing academic journey, technical skills & full-stack software projects.</p>
+                                <div class="project-actions">
+                                    <a href="https://prashant08.vercel.app/" target="_blank" class="btn-card-action btn-live" onclick="event.stopPropagation();">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/prashant-singh-78" target="_blank" class="btn-card-action btn-code" onclick="event.stopPropagation();">
+                                        <i class="fa-brands fa-github"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">PERSONAL PORTFOLIO</span>
+                            <h3 class="project-title">Personal Portfolio (Prashant08)</h3>
+                            <div class="project-tech-stack"><span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Vercel</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates & Achievements Section -->
+        <section class="certificates-section" id="certificates">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 05. HONORS & CERTIFICATIONS</span>
+                    <h2 class="section-title">Certificates & Achievements</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="certificates-grid">
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <i class="fa-solid fa-trophy text-gold"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-badge gold">1st PLACE WINNER</span>
+                            <h3>VGU National Project Exhibition</h3>
+                            <p class="cert-issuer">Vivekananda Global University • 2025</p>
+                            <p class="cert-desc">Awarded First Prize for engineering real-world AI/ML product prototype with highest accuracy and live demo excellence.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <i class="fa-solid fa-graduation-cap text-crimson"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-badge crimson">GRADUATION CERTIFICATE</span>
+                            <h3>Edu Chain Builders Connect</h3>
+                            <p class="cert-issuer">Edu Chain Foundation • 2025</p>
+                            <p class="cert-desc">Completed specialized certification program in decentralized systems, smart contract logic, and AI-enabled Web3 architecture.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <i class="fa-solid fa-laptop-code text-gold"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-badge gold">HACKATHON FINALIST</span>
+                            <h3>Rajasthan Digifest × TiE Hackathon</h3>
+                            <p class="cert-issuer">Department of IT & TiE Rajasthan • 2025</p>
+                            <p class="cert-desc">Finalist in state-wide hackathon building scalable digital solutions for real-world governance & public impact.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <i class="fa-solid fa-stopwatch text-crimson"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-badge crimson">24-HOUR HACKATHON</span>
+                            <h3>Hackstorm 24-Hour Hackathon</h3>
+                            <p class="cert-issuer">National Hackathon Series • 2025</p>
+                            <p class="cert-desc">Built and deployed a full-stack AI platform within 24 hours under continuous developer pressure and live jury evaluation.</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card glass-panel">
+                        <div class="cert-icon-wrapper">
+                            <i class="fa-solid fa-microchip text-gold"></i>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-badge gold">TECH FEST PARTICIPANT</span>
+                            <h3>Sphinx'25 Hackathon</h3>
+                            <p class="cert-issuer">MNIT Jaipur • 2024</p>
+                            <p class="cert-desc">Participated in annual technical fest hackathon solving complex algorithmic challenges and ML pipeline tasks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Hackathon Journey Roadmap Timeline -->
+                <div class="timeline-roadmap-wrapper">
+                    <h3 class="timeline-title"><i class="fa-solid fa-route text-gold"></i> Prashant's Hackathon Milestone Roadmap (Click to Test Event)</h3>
+                    <div class="timeline-track">
+                        <div class="timeline-item" onclick="selectTimelineMilestone('sphinx', this)">
+                            <span class="t-date">SEPT 2024</span>
+                            <span class="t-dot gold"></span>
+                            <h4>Sphinx'25 MNIT Jaipur</h4>
+                            <p>National Tech Fest</p>
+                        </div>
+                        <div class="timeline-item" onclick="selectTimelineMilestone('hackstorm', this)">
+                            <span class="t-date">OCT 2025</span>
+                            <span class="t-dot crimson"></span>
+                            <h4>Hackstorm 24-Hr</h4>
+                            <p>Rapid Prototyping</p>
+                        </div>
+                        <div class="timeline-item" onclick="selectTimelineMilestone('digifest', this)">
+                            <span class="t-date">DEC 2025</span>
+                            <span class="t-dot gold"></span>
+                            <h4>Rajasthan Digifest</h4>
+                            <p>State Finalist</p>
+                        </div>
+                        <div class="timeline-item" onclick="selectTimelineMilestone('educhain', this)">
+                            <span class="t-date">2025</span>
+                            <span class="t-dot crimson"></span>
+                            <h4>Edu Chain Connect</h4>
+                            <p>Graduation Certificate</p>
+                        </div>
+                        <div class="timeline-item winner-item active" onclick="selectTimelineMilestone('vgu', this)">
+                            <span class="t-date text-gold">2025 WINNER</span>
+                            <span class="t-dot trophy-dot"><i class="fa-solid fa-trophy"></i></span>
+                            <h4 class="text-gold">VGU Exhibition</h4>
+                            <p class="text-gold">1st Place Gold Trophy</p>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Milestone Telemetry Card -->
+                    <div class="timeline-detail-box glass-panel" id="timelineDetailBox">
+                        <div class="t-detail-badge"><i class="fa-solid fa-trophy text-gold"></i> GOLD TROPHY MILESTONE</div>
+                        <h4 id="tdTitle" class="text-gold">1st Place Winner – VGU National Project Exhibition (2025)</h4>
+                        <p id="tdDesc">Secured First Prize among top engineering teams at Vivekananda Global University by demonstrating a high-accuracy, real-world AI/ML product prototype with live jury validation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Handles Section -->
+        <section class="socials-section" id="socials">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 04. NETWORK & CONNECT</span>
+                    <h2 class="section-title">Social Media Handles</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="social-cards-grid">
+                    <a href="https://github.com/prashant-singh-78" target="_blank" class="social-card glass-panel">
+                        <div class="social-card-icon github"><i class="fa-brands fa-github"></i></div>
+                        <div class="social-card-info">
+                            <h3>GitHub</h3>
+                            <p>Explore source code & repositories</p>
+                            <span class="handle-tag">@prashant-singh-78 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/prashant-singh-7047572a0" target="_blank" class="social-card glass-panel">
+                        <div class="social-card-icon linkedin"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div class="social-card-info">
+                            <h3>LinkedIn</h3>
+                            <p>Professional network & career</p>
+                            <span class="handle-tag">/in/prashant-singh-7047572a0 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:prashantbachhamadi@gmail.com" class="social-card glass-panel">
+                        <div class="social-card-icon email"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="social-card-info">
+                            <h3>Email</h3>
+                            <p>Direct professional inbox</p>
+                            <span class="handle-tag">prashantbachhamadi@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="https://x.com" target="_blank" class="social-card glass-panel">
+                        <div class="social-card-icon twitter"><i class="fa-brands fa-x-twitter"></i></div>
+                        <div class="social-card-info">
+                            <h3>X (Twitter)</h3>
+                            <p>AI thoughts, updates & dev log</p>
+                            <span class="handle-tag">@prashant_dev <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/prashant_singh_08__/" target="_blank" class="social-card glass-panel">
+                        <div class="social-card-icon instagram"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="social-card-info">
+                            <h3>Instagram</h3>
+                            <p>Personal updates & photos</p>
+                            <span class="handle-tag">@prashant_singh_08__ <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/prashant.seenu.10" target="_blank" class="social-card glass-panel">
+                        <div class="social-card-icon facebook"><i class="fa-brands fa-facebook-f"></i></div>
+                        <div class="social-card-info">
+                            <h3>Facebook</h3>
+                            <p>Personal profile & connections</p>
+                            <span class="handle-tag">prashant.seenu.10 <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Feature #2: Live GitHub Stats Telemetry Card -->
+                <div class="github-telemetry-card glass-panel">
+                    <div class="gh-header">
+                        <div class="gh-user">
+                            <i class="fa-brands fa-github text-gold"></i>
+                            <div>
+                                <h4>GitHub Developer Telemetry</h4>
+                                <a href="https://github.com/prashant-singh-78" target="_blank" class="gh-handle">@prashant-singh-78</a>
+                            </div>
+                        </div>
+                        <span class="gh-status-badge"><span class="pulse-dot"></span> LIVE ACTIVITY</span>
+                    </div>
+
+                    <div class="gh-stats-row">
+                        <div class="gh-stat-pill">
+                            <span class="g-num text-gold">24</span>
+                            <span class="g-lbl">REPOSITORIES</span>
+                        </div>
+                        <div class="gh-stat-pill">
+                            <span class="g-num text-crimson">340+</span>
+                            <span class="g-lbl">COMMITS</span>
+                        </div>
+                        <div class="gh-stat-pill">
+                            <span class="g-num text-gold">16</span>
+                            <span class="g-lbl">LIVE DEPLOYS</span>
+                        </div>
+                    </div>
+
+                    <div class="gh-lang-bar-container">
+                        <span class="lang-lbl">Top Languages Breakdown:</span>
+                        <div class="lang-bar">
+                            <div class="segment py" style="width: 68%;" title="Python 68%"></div>
+                            <div class="segment js" style="width: 20%;" title="JavaScript 20%"></div>
+                            <div class="segment c" style="width: 12%;" title="C / Other 12%"></div>
+                        </div>
+                        <div class="lang-legend">
+                            <span class="leg-item"><span class="dot-py"></span> Python (68%)</span>
+                            <span class="leg-item"><span class="dot-js"></span> JavaScript (20%)</span>
+                            <span class="leg-item"><span class="dot-c"></span> C / Systems (12%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 05. TRANSMIT MESSAGE</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info glass-panel">
+                        <h3>Let's build something extraordinary together.</h3>
+                        <p>
+                            Have a project in mind, need consultation on AI/ML architecture, or looking to hire a dedicated engineer? Feel free to drop me a message!
+                        </p>
+
+                        <div class="c-info-list">
+                            <div class="c-info-item">
+                                <i class="fa-solid fa-location-dot text-crimson"></i>
+                                <div>
+                                    <strong>Location:</strong>
+                                    <span>Jaipur, Rajasthan, India</span>
+                                </div>
+                            </div>
+                            <div class="c-info-item">
+                                <i class="fa-solid fa-envelope text-gold"></i>
+                                <div>
+                                    <strong>Email:</strong>
+                                    <span>prashantbachhamadi@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="c-info-item">
+                                <i class="fa-solid fa-phone text-green"></i>
+                                <div>
+                                    <strong>Phone:</strong>
+                                    <span>+91 7627043971</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container glass-panel">
+                        <form id="contactForm" onsubmit="sendEmailJSMessage(event)">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="from_name" required placeholder="e.g. Alex Mercer">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="from_email" required placeholder="e.g. alex@company.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="AI Project Inquiry / Collaboration">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Describe your vision or project details..."></textarea>
+                            </div>
+                            <div id="contactFormStatus" style="display:none; margin-bottom:1rem; padding:0.8rem; border-radius:8px; font-size:0.88rem; font-family:var(--font-mono); line-height:1.4;"></div>
+                            <button type="submit" id="contactSubmitBtn" class="btn btn-gold btn-block">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Detail Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content glass-panel">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamically populated content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">Message sent successfully!</div>
+
+    <!-- Floating AI Console Terminal Trigger (Bottom-Right) -->
+    <button class="ai-console-toggle" id="aiConsoleToggle" onclick="toggleAIConsole()" title="Open PRASHANT_AI Interactive Terminal">
+        <i class="fa-solid fa-terminal"></i>
+        <span class="ai-toggle-badge">AI TERMINAL</span>
+    </button>
+
+    <!-- Floating Prashant AI Chatbot Trigger (Bottom-Left) -->
+    <button class="ai-chat-toggle" id="aiChatToggle" onclick="toggleAIChat()" title="Ask Prashant AI Avatar">
+        <i class="fa-solid fa-robot"></i>
+        <span class="ai-toggle-badge">TALK TO AI</span>
+    </button>
+
+    <!-- Floating Bubbling WhatsApp Action Widget -->
+    <a href="https://wa.me/917627043971?text=Hii%20Prashant%20i%20want%20to%20connect%20to%20you" target="_blank" class="whatsapp-float-btn" title="Chat on WhatsApp with Prashant">
+        <div class="whatsapp-bubble-ring"></div>
+        <div class="whatsapp-bubble-ring delay"></div>
+        <svg class="whatsapp-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347zM12 21.849c-1.782 0-3.528-.481-5.06-1.393l-.363-.216-3.764.987 1.004-3.67-.237-.377A9.8 9.8 0 0 1 2.15 12C2.15 6.57 6.57 2.15 12 2.15s9.85 4.42 9.85 9.85c0 5.43-4.42 9.849-9.85 9.849zm0-18.699c-4.88 0-8.85 3.97-8.85 8.85 0 1.71.486 3.376 1.405 4.819l.17.266-.677 2.477 2.534-.664.257.153a8.8 8.8 0 0 0 4.661 1.349c4.88 0 8.85-3.97 8.85-8.85 0-4.88-3.97-8.85-8.85-8.85z"/>
+        </svg>
+        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <!-- Prashant AI Conversational Avatar Chatbot Modal -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="ai-chat-header">
+            <div class="chat-avatar-title">
+                <div class="avatar-circle">
+                    <img src="assets/profile.jpg" alt="Prashant Avatar">
+                    <span class="online-indicator"></span>
+                </div>
+                <div>
+                    <h4>Prashant AI Assistant</h4>
+                    <span class="avatar-subtitle">AI/ML Recruiter Assistant</span>
+                </div>
+            </div>
+            <button class="chat-close" onclick="closeAIChat()">&times;</button>
+        </div>
+
+        <div class="ai-chat-body" id="aiChatBody">
+            <div class="chat-bubble ai-msg">
+                👋 Hello! I am Prashant's AI Avatar. How can I help you evaluate Prashant for your team today?
+            </div>
+        </div>
+
+        <div class="ai-chat-presets">
+            <button class="preset-chip" onclick="sendAIChat('Why hire Prashant?')">Why hire Prashant?</button>
+            <button class="preset-chip" onclick="sendAIChat('Experience in YOLO & PyTorch?')">YOLO & PyTorch experience?</button>
+            <button class="preset-chip" onclick="sendAIChat('Immediate availability?')">Immediate availability?</button>
+        </div>
+
+        <div class="ai-chat-footer">
+            <input type="text" id="aiChatInput" placeholder="Ask Prashant's AI Avatar a question..." autocomplete="off" onkeydown="if(event.key==='Enter') sendAIChat(this.value);">
+            <button id="aiChatSend" onclick="sendAIChat(document.getElementById('aiChatInput').value)"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Prashant AI Interactive Terminal Modal -->
+    <div class="ai-console-modal" id="aiConsoleModal">
+        <div class="ai-console-header">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">PRASHANT_AI v2.0 // INTERACTIVE CONSOLE</div>
+            <button class="console-close" id="aiConsoleClose" onclick="closeAIConsole()">&times;</button>
+        </div>
+        <div class="ai-console-body" id="aiConsoleBody">
+            <div class="console-log">
+                <p class="sys-msg"><span class="prompt-user">SYSTEM:</span> Initialized PRASHANT_AI v2.0 Terminal Engine.</p>
+                <p class="sys-msg">Type <span class="cmd-highlight">'help'</span> to see available commands or click quick chips below.</p>
+            </div>
+        </div>
+        <div class="ai-console-quick-chips">
+            <button class="chip-btn" onclick="execAICommand('skills')">skills</button>
+            <button class="chip-btn" onclick="execAICommand('projects')">projects</button>
+            <button class="chip-btn" onclick="execAICommand('resume')">resume</button>
+            <button class="chip-btn" onclick="execAICommand('contact')">contact</button>
+            <button class="chip-btn" onclick="execAICommand('about')">about</button>
+            <button class="chip-btn" onclick="execAICommand('clear')">clear</button>
+        </div>
+        <div class="ai-console-footer">
+            <span class="prompt-symbol">PRASHANT_AI&gt;</span>
+            <input type="text" id="aiConsoleInput" placeholder="Type a command (e.g. help, skills, projects, resume)..." autocomplete="off" onkeydown="if(event.key==='Enter') execAICommand(this.value);">
+            <button id="aiConsoleSend" onclick="execAICommand(document.getElementById('aiConsoleInput').value)"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="logo">PRASHANT<span class="logo-dot">.</span></span>
+                <p>&copy; 2026 Prashant. All rights reserved. Crafted with precision & neural aesthetics.</p>
+            </div>
+            <div class="footer-right">
+                <div class="live-clock" id="liveClock">UTC 00:00:00</div>
+                <a href="#hero" class="back-to-top" title="Back to top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+    <!-- Inline Failsafe Modal & Command Engine Script -->
+    <script>
+        function toggleAIConsole() {
+            var m = document.getElementById('aiConsoleModal');
+            if (!m) return;
+            if (m.classList.contains('show')) {
+                m.classList.remove('show');
+                m.style.display = 'none';
+            } else {
+                m.classList.add('show');
+                m.style.display = 'flex';
+                var inp = document.getElementById('aiConsoleInput');
+                if (inp) inp.focus();
+            }
+        }
+
+        function closeAIConsole() {
+            var m = document.getElementById('aiConsoleModal');
+            if (m) {
+                m.classList.remove('show');
+                m.style.display = 'none';
+            }
+        }
+
+        function toggleAIChat() {
+            var m = document.getElementById('aiChatModal');
+            if (!m) return;
+            if (m.classList.contains('show')) {
+                m.classList.remove('show');
+                m.style.display = 'none';
+            } else {
+                m.classList.add('show');
+                m.style.display = 'flex';
+            }
+        }
+
+        function closeAIChat() {
+            var m = document.getElementById('aiChatModal');
+            if (m) {
+                m.classList.remove('show');
+                m.style.display = 'none';
+            }
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g, function(tag) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag;
+            });
+        }
+
+        function execAICommand(rawCmd) {
+            var consoleBody = document.getElementById('aiConsoleBody');
+            var consoleInput = document.getElementById('aiConsoleInput');
+            if (!rawCmd || !consoleBody) return;
+
+            var cmd = rawCmd.trim().toLowerCase();
+            if (!cmd) return;
+
+            var userLog = document.createElement('div');
+            userLog.className = 'console-log';
+            userLog.innerHTML = '<p><span class="prompt-symbol">PRASHANT_AI&gt;</span> <span class="user-cmd-msg">' + escapeHTML(rawCmd) + '</span></p>';
+            consoleBody.appendChild(userLog);
+
+            var respHTML = '';
+
+            switch (cmd) {
+                case 'help':
+                    respHTML = '<p class="ai-resp-msg">Available Commands:</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">skills</span> : View primary AI/ML tech stack & toolset</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">projects</span> : List featured AI/ML applications & live links</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">resume</span> : Download Prashant\'s official PDF resume</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">contact</span> : Get email, phone, location & socials</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">about</span> : Brief summary of academic background</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">clear</span> : Clear console logs</p>';
+                    break;
+
+                case 'skills':
+                    respHTML = '<p class="ai-resp-msg">🚀 Primary Tech Stack:</p>' +
+                               '<p class="sys-msg">Python • C • Flask • SQL • NumPy • Pandas • Matplotlib • Scikit-learn • YOLOv8 • Git • Linux • Arduino IDE • Cursor • VS Code</p>';
+                    break;
+
+                case 'projects':
+                    respHTML = '<p class="ai-resp-msg">💼 16 Featured AI & Full-Stack Projects Ready:</p>' +
+                               '<p class="sys-msg">1. Deta Hub (deta-hub.vercel.app)</p>' +
+                               '<p class="sys-msg">2. Snake Verse (snake-verse-five.vercel.app)</p>' +
+                               '<p class="sys-msg">3. Skill.Nova Platform (courses-plateform.vercel.app)</p>' +
+                               '<p class="sys-msg">4. StudyShield (github.com/prashant-singh-78/SWD)</p>' +
+                               '<p class="sys-msg">5. NovaERP SaaS (management-saa-s-six.vercel.app)</p>' +
+                               '<p class="sys-msg">6. Mockmate AI (mockmate-sandy.vercel.app)</p>' +
+                               '<p class="sys-msg">7. AI Coach (ai-coach-ochre-pi.vercel.app)</p>' +
+                               '<p class="sys-msg">8. StreamLite (streamlite-vrvp.vercel.app)</p>';
+                    break;
+
+                case 'resume':
+                    respHTML = '<p class="ai-resp-msg">📄 Downloading Prashant\'s Official Resume PDF...</p>';
+                    window.open('assets/resume.pdf', '_blank');
+                    break;
+
+                case 'contact':
+                    respHTML = '<p class="ai-resp-msg">📬 Contact Telemetry:</p>' +
+                               '<p class="sys-msg">Email: prashantbachhamadi@gmail.com</p>' +
+                               '<p class="sys-msg">Phone: +91 7627043971</p>' +
+                               '<p class="sys-msg">Location: Jaipur, Rajasthan, India</p>' +
+                               '<p class="sys-msg">LinkedIn: linkedin.com/in/prashant-singh-7047572a0</p>' +
+                               '<p class="sys-msg">Instagram: @prashant_singh_08__</p>';
+                    break;
+
+                case 'about':
+                    respHTML = '<p class="ai-resp-msg">🎓 Academic Profile:</p>' +
+                               '<p class="sys-msg">B.Tech in Computer Science (AI) at Arya Institute of Engineering Technology And Management, Jaipur (2023-2027).</p>' +
+                               '<p class="sys-msg">Class XII: 87.77% | Class X: 90.00%</p>' +
+                               '<p class="sys-msg">Trophies: Winner - VGU National Exhibition 2025, Rajasthan Digifest × TiE Finalist.</p>';
+                    break;
+
+                case 'clear':
+                    consoleBody.innerHTML = '<div class="console-log"><p class="sys-msg"><span class="prompt-user">SYSTEM:</span> Terminal cleared. Type <span class="cmd-highlight">\'help\'</span> for command menu.</p></div>';
+                    if (consoleInput) consoleInput.value = '';
+                    return;
+
+                default:
+                    respHTML = '<p class="ai-resp-msg" style="border-left-color: var(--accent-crimson);">Unknown command \'' + escapeHTML(rawCmd) + '\'. Type <span class="cmd-highlight">\'help\'</span> for list of commands.</p>';
+                    break;
+            }
+
+            var respLog = document.createElement('div');
+            respLog.className = 'console-log';
+            respLog.innerHTML = respHTML;
+            consoleBody.appendChild(respLog);
+
+            consoleBody.scrollTop = consoleBody.scrollHeight;
+            if (consoleInput) consoleInput.value = '';
+        }
+
+        function sendAIChat(questionText) {
+            var chatBody = document.getElementById('aiChatBody');
+            var chatInput = document.getElementById('aiChatInput');
+            if (!questionText || !chatBody) return;
+
+            var query = questionText.trim();
+            if (!query) return;
+
+            var userMsg = document.createElement('div');
+            userMsg.className = 'chat-bubble user-msg';
+            userMsg.textContent = query;
+            chatBody.appendChild(userMsg);
+
+            if (chatInput) chatInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(function() {
+                var aiResp = "";
+                var lowerQ = query.toLowerCase();
+
+                if (lowerQ.includes('hire') || lowerQ.includes('why')) {
+                    aiResp = "Prashant brings strong expertise in PyTorch, YOLOv8, Flask, and Full-Stack AI integration. He has won 1st Place at VGU Exhibition 2025 and built 16+ production projects!";
+                } else if (lowerQ.includes('yolo') || lowerQ.includes('pytorch') || lowerQ.includes('experience')) {
+                    aiResp = "Prashant has extensive experience building computer vision pipelines with YOLOv8 (e.g. Skin Disease Predictor, Image.ML) and custom PyTorch / Scikit-learn ML models!";
+                } else if (lowerQ.includes('available') || lowerQ.includes('availability') || lowerQ.includes('role')) {
+                    aiResp = "Yes! Prashant is actively seeking AI/ML Engineer & Data Science roles. You can contact him directly at prashantbachhamadi@gmail.com or +91 7627043971.";
+                } else {
+                    aiResp = 'Thanks for asking about "' + query + '"! Prashant specializes in AI/ML solutions, model deployment, and full-stack web applications. Feel free to download his resume or drop an email!';
+                }
+
+                var aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-bubble ai-msg';
+                aiMsg.textContent = aiResp;
+                chatBody.appendChild(aiMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 300);
+        }
+
+        // Failsafe Category & Live Search Filtering Engine
+        var currentFilterCategory = 'all';
+        var currentSearchQuery = '';
+
+        function applyProjectFilters() {
+            var grid = document.getElementById('projectsGrid');
+            var countBadge = document.getElementById('searchCountBadge');
+            if (!grid) return;
+
+            var cards = grid.querySelectorAll('.project-card');
+            var visibleCount = 0;
+            var totalCount = cards.length;
+
+            cards.forEach(function(card) {
+                var cardCat = card.getAttribute('data-category') || '';
+                var title = (card.querySelector('.project-title') ? card.querySelector('.project-title').textContent : '').toLowerCase();
+                var tag = (card.querySelector('.project-tag') ? card.querySelector('.project-tag').textContent : '').toLowerCase();
+                var desc = (card.querySelector('.hover-desc') ? card.querySelector('.hover-desc').textContent : '').toLowerCase();
+                
+                var matchesCategory = (currentFilterCategory === 'all') || (cardCat === currentFilterCategory);
+                
+                var matchesSearch = true;
+                if (currentSearchQuery.trim() !== '') {
+                    var q = currentSearchQuery.toLowerCase().trim();
+                    matchesSearch = title.indexOf(q) !== -1 || tag.indexOf(q) !== -1 || desc.indexOf(q) !== -1;
+                }
+
+                if (matchesCategory && matchesSearch) {
+                    card.classList.remove('hidden');
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (countBadge) {
+                countBadge.textContent = visibleCount + ' of ' + totalCount + ' Projects';
+            }
+        }
+
+        function filterProjectCategory(category, btnElement) {
+            currentFilterCategory = category;
+            
+            var filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
+
+            applyProjectFilters();
+        }
+
+        function filterProjectSearch(query) {
+            currentSearchQuery = query;
+            applyProjectFilters();
+        }
+
+        // Inline Background Shining Bubble Particles Engine
+        (function initShiningBubbles() {
+            var canvas = document.getElementById('neuralCanvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var width = canvas.width = window.innerWidth;
+            var height = canvas.height = window.innerHeight;
+            var mouse = { x: width / 2, y: height / 2, radius: 180 };
+
+            window.addEventListener('resize', function() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            window.addEventListener('mousemove', function(e) {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            var colors = ['#ffb703', '#ff2a5f', '#ffbe0b', '#00f0ff'];
+            var particleCount = width > 768 ? 75 : 40;
+            var particles = [];
+
+            for (var i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.8,
+                    vy: (Math.random() - 0.5) * 0.8,
+                    radius: Math.random() * 3.5 + 1.5,
+                    baseAlpha: Math.random() * 0.5 + 0.4,
+                    pulseSpeed: Math.random() * 0.03 + 0.01,
+                    pulseAngle: Math.random() * Math.PI * 2,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (var i = 0; i < particles.length; i++) {
+                    var p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.pulseAngle += p.pulseSpeed;
+
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+                    if (p.y < -10) p.y = height + 10;
+                    if (p.y > height + 10) p.y = -10;
+
+                    var dx = mouse.x - p.x;
+                    var dy = mouse.y - p.y;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < mouse.radius) {
+                        var force = (mouse.radius - dist) / mouse.radius;
+                        p.x -= (dx / dist) * force * 2;
+                        p.y -= (dy / dist) * force * 2;
+                    }
+
+                    var alpha = p.baseAlpha + Math.sin(p.pulseAngle) * 0.25;
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0.1, Math.min(1, alpha));
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    ctx.restore();
+
+                    for (var j = i + 1; j < particles.length; j++) {
+                        var p2 = particles[j];
+                        var lx = p.x - p2.x;
+                        var ly = p.y - p2.y;
+                        var ldist = Math.sqrt(lx * lx + ly * ly);
+
+                        if (ldist < 120) {
+                            ctx.save();
+                            ctx.globalAlpha = (1 - ldist / 120) * 0.2;
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = 0.8;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                            ctx.restore();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(render);
+            }
+
+            render();
+        })();
+
+        // EmailJS Live Contact Form Transmission Handler
+        function sendEmailJSMessage(e) {
+            if (e) e.preventDefault();
+            var form = document.getElementById('contactForm');
+            var submitBtn = document.getElementById('contactSubmitBtn');
+            var statusBox = document.getElementById('contactFormStatus');
+            if (!form) return;
+
+            var nameInput = document.getElementById('name');
+            var emailInput = document.getElementById('email');
+            var subjectInput = document.getElementById('subject');
+            var messageInput = document.getElementById('message');
+
+            var nameVal = nameInput ? nameInput.value.trim() : '';
+            var emailVal = emailInput ? emailInput.value.trim() : '';
+            var subjectVal = subjectInput ? subjectInput.value.trim() : 'Portfolio Contact Inquiry';
+            var messageVal = messageInput ? messageInput.value.trim() : '';
+
+            if (!nameVal || !emailVal || !messageVal) return;
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending Message...';
+            }
+
+            if (statusBox) {
+                statusBox.style.display = 'block';
+                statusBox.style.background = 'rgba(255, 183, 3, 0.15)';
+                statusBox.style.border = '1px solid var(--accent-gold)';
+                statusBox.style.color = 'var(--accent-gold)';
+                statusBox.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> Transmitting message via EmailJS to Prashant\'s Gmail...';
+            }
+
+            var templateParams = {
+                from_name: nameVal,
+                from_email: emailVal,
+                name: nameVal,
+                email: emailVal,
+                reply_to: emailVal,
+                subject: subjectVal,
+                message: messageVal,
+                to_name: 'Prashant'
+            };
+
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send('service_b29vfzc', 'template_echvhmf', templateParams, 'HuWlWN7_jhAeT9u2a')
+                    .then(function(response) {
+                        console.log('EMAILJS SUCCESS!', response.status, response.text);
+                        if (statusBox) {
+                            statusBox.style.background = 'rgba(46, 204, 113, 0.15)';
+                            statusBox.style.border = '1px solid #2ecc71';
+                            statusBox.style.color = '#2ecc71';
+                            statusBox.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>Message Transmitted Successfully!</strong> Prashant has received your message in his Gmail inbox and will reply to ' + escapeHTML(emailVal) + ' shortly.';
+                        }
+                        form.reset();
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+                            setTimeout(function() {
+                                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                            }, 4000);
+                        }
+                    }, function(error) {
+                        console.error('EMAILJS FAILED...', error);
+                        if (statusBox) {
+                            statusBox.style.background = 'rgba(255, 42, 95, 0.15)';
+                            statusBox.style.border = '1px solid var(--accent-crimson)';
+                            statusBox.style.color = 'var(--accent-crimson)';
+                            statusBox.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> <strong>Notice:</strong> Unable to connect to EmailJS server right now. Please email directly to <a href="mailto:prashantbachhamadi@gmail.com" style="color:var(--accent-gold); text-decoration:underline;">prashantbachhamadi@gmail.com</a>.';
+                        }
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Try Again';
+                        }
+                    });
+            } else {
+                if (statusBox) {
+                    statusBox.style.background = 'rgba(255, 183, 3, 0.15)';
+                    statusBox.style.border = '1px solid var(--accent-gold)';
+                    statusBox.style.color = 'var(--accent-gold)';
+                    statusBox.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Sending message directly to <strong>prashantbachhamadi@gmail.com</strong>...';
+                }
+                form.reset();
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
