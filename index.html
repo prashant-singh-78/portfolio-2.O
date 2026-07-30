@@ -1303,55 +1303,69 @@
         </div>
     </div>
 
-    <!-- Recruiter Mode Executive Briefing Glassmorphism Modal -->
-    <div id="p2RecruiterModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
+    <!-- Recruiter Mode Executive Briefing Glassmorphism Modal (Red & Black Theme) -->
+    <div id="p2RecruiterModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
         <div class="p2-cs-modal-overlay" onclick="p2ToggleRecruiterMode()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow); padding: 1.8rem;">
-            <button class="p2-cs-close-btn" onclick="p2ToggleRecruiterMode()" title="Exit Recruiter Mode" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; background: rgba(7, 6, 9, 0.95); border: 1px solid var(--accent-crimson); box-shadow: 0 0 35px rgba(255, 42, 95, 0.4); padding: 1.8rem;">
+            <button class="p2-cs-close-btn" onclick="p2ToggleRecruiterMode()" title="Exit Recruiter Mode" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: var(--accent-crimson); font-size: 1.5rem; cursor: pointer;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div class="p2-rec-banner-header">
-                <div class="p2-rec-badge">
-                    <span class="pulse-dot"></span> RECRUITER SUMMARY BRIEFING MODE
+            <div class="p2-rec-banner-header" style="border-bottom: 1px solid rgba(255, 42, 95, 0.2); padding-bottom: 0.8rem; margin-bottom: 1.2rem;">
+                <div class="p2-rec-badge" style="background: rgba(255, 42, 95, 0.15); border: 1px solid var(--accent-crimson); color: var(--accent-crimson);">
+                    <span class="pulse-dot" style="background: var(--accent-crimson);"></span> RECRUITER SUMMARY BRIEFING MODE
                 </div>
                 <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green);"><i class="fa-solid fa-circle-check"></i> Available for Full-Time Roles</span>
             </div>
 
             <div class="p2-rec-banner-grid">
                 <div class="p2-rec-col-main">
-                    <h2 class="p2-rec-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Executive Candidate Briefing</h2>
-                    <p class="p2-rec-intro">AI Engineer & Full-Stack Developer specializing in Machine Learning, Computer Vision, and high-impact web applications. Proven track record winning national project exhibitions and hackathons with production-ready AI solutions.</p>
+                    <h2 class="p2-rec-title" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Executive Candidate Briefing</h2>
+                    <p class="p2-rec-intro" style="color: var(--text-muted);">AI Engineer & Full-Stack Developer specializing in Machine Learning, Computer Vision, and high-impact web applications. Proven track record winning national project exhibitions and hackathons with production-ready AI solutions.</p>
 
                     <div class="p2-rec-skills-wrapper" style="margin-top: 1rem;">
-                        <h4 style="font-family: var(--font-heading); color: var(--accent-gold); margin-bottom: 0.5rem;">Core Skill Highlights</h4>
+                        <h4 style="font-family: var(--font-heading); color: var(--accent-crimson); margin-bottom: 0.5rem;"><i class="fa-solid fa-layer-group"></i> Core Skill Highlights</h4>
                         <div class="p2-pills-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                            <span class="p2-pill">Python & Flask</span>
-                            <span class="p2-pill">TensorFlow & PyTorch</span>
-                            <span class="p2-pill">YOLOv8 Computer Vision</span>
-                            <span class="p2-pill">Scikit-learn & ML Pipelines</span>
-                            <span class="p2-pill">React & Next.js</span>
-                            <span class="p2-pill">SQL & Database Design</span>
-                            <span class="p2-pill">Git & Linux CLI</span>
-                            <span class="p2-pill">REST APIs & Cloud Deployment</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">Python & Flask</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">TensorFlow & PyTorch</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">YOLOv8 Computer Vision</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">Scikit-learn & ML Pipelines</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">React & Next.js</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">SQL & Database Design</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">Git & Linux CLI</span>
+                            <span class="p2-pill" style="border-color: var(--accent-crimson); color: #fff; background: rgba(255, 42, 95, 0.1);">REST APIs & Cloud Deployment</span>
                         </div>
                     </div>
 
                     <div style="margin-top: 1.5rem;">
-                        <h4 style="font-family: var(--font-heading); color: var(--accent-gold); margin-bottom: 0.5rem;">Top Featured Projects (Highlighted Below)</h4>
-                        <ul style="list-style: none; padding: 0; font-size: 0.88rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>StudyShield</strong> (AI Focus Monitor)</li>
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>MockMate</strong> (AI Interview Prep)</li>
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>MediCure</strong> (Healthcare Assistant)</li>
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>NovaERP</strong> (Multi-Tenant SaaS)</li>
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>Deta Hub</strong> (Dataset Platform)</li>
-                            <li><i class="fa-solid fa-star text-gold"></i> <strong>Skin Disease Predictor</strong> (CNN ML)</li>
+                        <h4 style="font-family: var(--font-heading); color: var(--accent-crimson); margin-bottom: 0.5rem;"><i class="fa-solid fa-star"></i> Top Featured Projects (Highlighted Below)</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.88rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; color: #fff;">
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>StudyShield</strong> (AI Focus Monitor)</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>MockMate</strong> (AI Interview Prep)</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>MediCure</strong> (Healthcare Assistant)</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>NovaERP</strong> (Multi-Tenant SaaS)</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>Deta Hub</strong> (Dataset Platform)</li>
+                            <li><i class="fa-solid fa-check" style="color:var(--accent-crimson);"></i> <strong>Skin Disease Predictor</strong> (CNN ML)</li>
                         </ul>
                     </div>
 
+                    <!-- Disclaimer Box -->
+                    <div style="margin-top: 1.5rem; padding: 1rem 1.2rem; background: rgba(255, 42, 95, 0.1); border: 1px solid var(--accent-crimson); border-radius: 10px; font-family: var(--font-mono); font-size: 0.85rem; color: #fff; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+                        <div>
+                            <strong style="color: var(--accent-crimson);"><i class="fa-solid fa-circle-info"></i> Notice / Disclaimer:</strong>
+                            <span style="color: var(--text-muted); display: block; margin-top: 0.2rem;">Agar aapko specific domain-wise resume (AI/ML, Full-Stack, Data Science, Backend) chahiye, toh niche "Tailor Resume" button par click karein.</span>
+                        </div>
+                        <button type="button" class="btn btn-outline" style="border-color: var(--accent-crimson); color: var(--accent-crimson);" onclick="p2ToggleRecruiterMode(); p2OpenResumeCustomizer();">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Open Tailor Engine
+                        </button>
+                    </div>
+
                     <div class="p2-rec-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-gold">
-                            <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                        <button type="button" class="btn btn-outline" style="border-color: var(--accent-crimson); color: var(--accent-crimson);" onclick="p2ToggleRecruiterMode(); p2OpenResumeCustomizer();">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Tailor Resume
+                        </button>
+                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-gold" style="background: var(--accent-crimson); border-color: var(--accent-crimson); color: #fff;">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download Master Resume
                         </a>
                         <a href="#contact" class="btn btn-outline" onclick="p2ToggleRecruiterMode()">
                             <i class="fa-solid fa-paper-plane"></i> Contact / Hire Me
@@ -1365,23 +1379,23 @@
         </div>
     </div>
 
-    <!-- Resume Customizer Glassmorphism Modal -->
-    <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
+    <!-- Resume Customizer Glassmorphism Modal (Red & Black Theme) -->
+    <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
         <div class="p2-cs-modal-overlay" onclick="p2CloseResumeCustomizer()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; padding: 1.8rem; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow);">
-            <button class="p2-cs-close-btn" onclick="p2CloseResumeCustomizer()" title="Close Customizer" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; padding: 1.8rem; background: rgba(7, 6, 9, 0.95); border: 1px solid var(--accent-crimson); box-shadow: 0 0 35px rgba(255, 42, 95, 0.4);">
+            <button class="p2-cs-close-btn" onclick="p2CloseResumeCustomizer()" title="Close Customizer" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: var(--accent-crimson); font-size: 1.5rem; cursor: pointer;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div class="p2-cs-modal-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-                <span class="p2-cs-badge"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> AI RESUME TAILORING ENGINE</span>
-                <h2 class="gradient-text" style="font-size: 1.8rem; margin-top: 0.4rem;">Customize Prashant's Resume</h2>
-                <p style="color: var(--text-muted); font-size: 0.88rem;">Select a recruiter target role to instantly tailor skills, project order, and executive summary.</p>
+            <div class="p2-cs-modal-header" style="border-bottom: 1px solid rgba(255, 42, 95, 0.2); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                <span class="p2-cs-badge" style="background: rgba(255, 42, 95, 0.15); border: 1px solid var(--accent-crimson); color: var(--accent-crimson);"><i class="fa-solid fa-wand-magic-sparkles"></i> AI RESUME TAILORING ENGINE</span>
+                <h2 style="font-size: 1.8rem; margin-top: 0.4rem; color: #fff;">Customize Prashant's Resume</h2>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">Select a domain role to instantly tailor skills, project order, and executive summary.</p>
             </div>
 
             <!-- Role Selector Tabs -->
             <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                <button type="button" class="btn btn-gold p2-role-tab active" data-role="aiml" onclick="p2SelectResumeRole('aiml')">
+                <button type="button" class="btn p2-role-tab active" data-role="aiml" onclick="p2SelectResumeRole('aiml')" style="background: var(--accent-crimson); border-color: var(--accent-crimson); color: #fff;">
                     <i class="fa-solid fa-brain"></i> AI / ML Engineer
                 </button>
                 <button type="button" class="btn btn-outline p2-role-tab" data-role="fullstack" onclick="p2SelectResumeRole('fullstack')">
@@ -1396,7 +1410,7 @@
             </div>
 
             <!-- Live Custom Resume Preview Card -->
-            <div id="p2CustomResumePreview" class="p2-admin-card glass-panel" style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--accent-gold); padding: 1.5rem; margin-bottom: 1.5rem;">
+            <div id="p2CustomResumePreview" class="p2-admin-card glass-panel" style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--accent-crimson); padding: 1.5rem; margin-bottom: 1.5rem;">
                 <!-- Dynamically populated by p2RenderCustomResumePreview() -->
             </div>
 
@@ -1405,7 +1419,7 @@
                 <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
                     <i class="fa-solid fa-file-pdf"></i> Master PDF (Standard)
                 </a>
-                <button type="button" class="btn btn-gold" onclick="p2DownloadCustomizedResume()">
+                <button type="button" class="btn btn-gold" style="background: var(--accent-crimson); border-color: var(--accent-crimson); color: #fff;" onclick="p2DownloadCustomizedResume()">
                     <i class="fa-solid fa-download"></i> Download Tailored Resume PDF
                 </button>
             </div>
@@ -1494,9 +1508,15 @@
             var tabs = document.querySelectorAll('.p2-role-tab');
             tabs.forEach(function(tab) {
                 if (tab.getAttribute('data-role') === p2CurrentRole) {
-                    tab.className = 'btn btn-gold p2-role-tab active';
+                    tab.className = 'btn p2-role-tab active';
+                    tab.style.background = 'var(--accent-crimson)';
+                    tab.style.borderColor = 'var(--accent-crimson)';
+                    tab.style.color = '#fff';
                 } else {
                     tab.className = 'btn btn-outline p2-role-tab';
+                    tab.style.background = 'transparent';
+                    tab.style.borderColor = 'rgba(255,255,255,0.2)';
+                    tab.style.color = 'var(--text-main)';
                 }
             });
             p2RenderCustomResumePreview(p2CurrentRole);
@@ -1551,38 +1571,38 @@
 
             var prof = roleProfiles[roleId] || roleProfiles['aiml'];
             var skillsHTML = prof.skills.map(function(s) {
-                return '<span class="p2-pill" style="border-color:var(--accent-gold); color:var(--accent-gold); margin:2px;">' + s + '</span>';
+                return '<span class="p2-pill" style="border-color:var(--accent-crimson); color:#fff; background:rgba(255, 42, 95, 0.15); margin:2px;">' + s + '</span>';
             }).join(' ');
 
             var highlightsHTML = prof.highlights.map(function(h) {
-                return '<li><i class="fa-solid fa-check text-gold" style="margin-right:0.5rem;"></i>' + h + '</li>';
+                return '<li><i class="fa-solid fa-check" style="color:var(--accent-crimson); margin-right:0.5rem;"></i>' + h + '</li>';
             }).join('');
 
             container.innerHTML = 
-                '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; border-bottom:1px dashed rgba(255,255,255,0.15); padding-bottom:1rem;">' +
+                '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; border-bottom:1px dashed rgba(255,42,95,0.25); padding-bottom:1rem;">' +
                     '<div>' +
-                        '<h3 class="gradient-text" style="font-size:1.4rem; margin-bottom:0.2rem;">Prashant Singh</h3>' +
-                        '<span style="font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-gold);">' + prof.title + '</span>' +
+                        '<h3 style="font-size:1.4rem; margin-bottom:0.2rem; color:#fff;">Prashant Singh</h3>' +
+                        '<span style="font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-crimson); font-weight:600;">' + prof.title + '</span>' +
                     '</div>' +
                     '<div style="font-size:0.82rem; color:var(--text-muted); font-family:var(--font-mono);">' +
-                        '<div><i class="fa-solid fa-envelope"></i> prashantbachhamadi@gmail.com</div>' +
-                        '<div><i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan, India</div>' +
+                        '<div><i class="fa-solid fa-envelope" style="color:var(--accent-crimson);"></i> prashantbachhamadi@gmail.com</div>' +
+                        '<div><i class="fa-solid fa-location-dot" style="color:var(--accent-crimson);"></i> Jaipur, Rajasthan, India</div>' +
                     '</div>' +
                 '</div>' +
                 '<div style="margin-bottom:1.2rem;">' +
-                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-gold);"><i class="fa-solid fa-user text-gold"></i> Tailored Executive Summary</h4>' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-crimson);"><i class="fa-solid fa-user" style="color:var(--accent-crimson);"></i> Tailored Executive Summary</h4>' +
                     '<p style="font-size:0.88rem; color:var(--text-main); line-height:1.6;">' + prof.summary + '</p>' +
                 '</div>' +
                 '<div style="margin-bottom:1.2rem;">' +
-                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.6rem; color:var(--accent-gold);"><i class="fa-solid fa-layer-group text-gold"></i> Targeted Core Competencies</h4>' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.6rem; color:var(--accent-crimson);"><i class="fa-solid fa-layer-group" style="color:var(--accent-crimson);"></i> Targeted Core Competencies</h4>' +
                     '<div style="display:flex; flex-wrap:wrap; gap:0.4rem;">' + skillsHTML + '</div>' +
                 '</div>' +
                 '<div style="margin-bottom:1.2rem;">' +
-                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; color:var(--accent-gold);"><i class="fa-solid fa-star text-gold"></i> Role-Specific Engineering Accomplishments</h4>' +
-                    '<ul style="list-style:none; padding-left:0; font-size:0.88rem; display:flex; flex-direction:column; gap:0.5rem;">' + highlightsHTML + '</ul>' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; color:var(--accent-crimson);"><i class="fa-solid fa-star" style="color:var(--accent-crimson);"></i> Role-Specific Engineering Accomplishments</h4>' +
+                    '<ul style="list-style:none; padding-left:0; font-size:0.88rem; display:flex; flex-direction:column; gap:0.5rem; color:#fff;">' + highlightsHTML + '</ul>' +
                 '</div>' +
                 '<div>' +
-                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-gold);"><i class="fa-solid fa-graduation-cap text-gold"></i> Education & Achievements</h4>' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-crimson);"><i class="fa-solid fa-graduation-cap" style="color:var(--accent-crimson);"></i> Education & Achievements</h4>' +
                     '<p style="font-size:0.85rem; color:var(--text-muted); margin:0;">B.Tech CSE (AI & ML Specialization) — VGU Jaipur (2022 - 2026) | 🏆 1st Rank Winner VGU National Exhibition 2025</p>' +
                 '</div>';
         }
