@@ -422,7 +422,8 @@ function initProjectsGrid() {
     cards.forEach(card => {
         const id = parseInt(card.getAttribute('data-id'), 10);
         
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return;
             openProjectModal(id);
         });
 
@@ -461,8 +462,16 @@ function initProjectModal() {
     const modalClose = document.getElementById('modalClose');
 
     window.openProjectModal = function(id) {
+        if (window.p2OpenCaseStudy && window.portfolio2Data && window.portfolio2Data.caseStudies[id]) {
+            window.p2OpenCaseStudy(id);
+            return;
+        }
+
         const project = projectsData.find(p => p.id === id);
         if (!project || !modal || !modalBody) return;
+
+        const slugName = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const pdfPath = `assets/case-studies/${slugName}-case-study.pdf`;
 
         modalBody.innerHTML = `
             <span class="project-tag">${project.categoryTag}</span>
@@ -473,12 +482,15 @@ function initProjectModal() {
             <div class="project-tech-stack" style="margin-bottom: 2rem;">
                 ${project.tech.map(t => `<span class="tech-badge" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">${t}</span>`).join('')}
             </div>
-            <div style="display: flex; gap: 1rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                 <a href="${project.liveUrl}" target="_blank" class="btn btn-gold">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live Application
                 </a>
                 <a href="${project.githubUrl}" target="_blank" class="btn btn-outline">
                     <i class="fa-brands fa-github"></i> View GitHub Repo
+                </a>
+                <a href="${pdfPath}" target="_blank" download class="btn btn-outline" style="border-color: var(--accent-teal, #008080); color: var(--accent-teal, #008080);">
+                    <i class="fa-solid fa-download"></i> Download PDF
                 </a>
             </div>
         `;

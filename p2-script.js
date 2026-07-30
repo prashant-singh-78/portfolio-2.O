@@ -64,7 +64,7 @@
                 heroContainer.style.display = 'block';
             }
             if (recruiterModal) {
-                recruiterModal.style.display = 'block';
+                recruiterModal.style.display = 'flex';
             }
 
             // Highlight top recruiter project cards
@@ -212,12 +212,17 @@
     // 2. DETAILED CASE STUDIES MODAL ENGINE
     // ----------------------------------------------------------------------
     function p2InitCaseStudyListeners() {
-        // Attach View Case Study buttons to target project cards
+        // Attach View Case Study buttons to target project cards & bind card click
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach(card => {
             const idAttr = card.getAttribute('data-id');
             const projectId = parseInt(idAttr, 10);
             if (!projectId) return;
+
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+                p2OpenCaseStudy(projectId);
+            });
 
             // Check if this project has a case study
             if (window.portfolio2Data && window.portfolio2Data.caseStudies[projectId]) {
@@ -274,8 +279,14 @@
                     <span class="p2-cs-badge">${data.categoryTag}</span>
                     <h2 class="p2-cs-title">${data.title}</h2>
                 </div>
-                <div class="p2-cs-header-actions">
-                    <a href="${data.pdfUrl}" target="_blank" download class="btn-card-action btn-live" style="background:var(--accent-gold); color:#000;">
+                <div class="p2-cs-header-actions" style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+                    <a href="${data.liveUrl}" target="_blank" class="btn-card-action btn-live" style="background:var(--accent-gold); color:#000; text-decoration:none; padding:0.4rem 0.8rem; border-radius:6px; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.4rem;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                    <a href="${data.githubUrl}" target="_blank" class="btn-card-action btn-code" style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid var(--border-color); text-decoration:none; padding:0.4rem 0.8rem; border-radius:6px; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.4rem;">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="${data.pdfUrl}" target="_blank" download class="btn-card-action btn-live" style="background:var(--accent-teal, #008080); color:#fff; text-decoration:none; padding:0.4rem 0.8rem; border-radius:6px; font-weight:600; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.4rem;">
                         <i class="fa-solid fa-file-pdf"></i> Download PDF
                     </a>
                     <button class="p2-cs-close-btn" onclick="p2CloseCaseStudyModal()">&times;</button>
@@ -283,14 +294,14 @@
             </div>
 
             <div class="p2-cs-body-scroll">
-                <!-- Overview & Problem Section -->
+                <!-- Overview & Problem Section (Use & Need) -->
                 <div class="p2-cs-section glass-panel">
-                    <h3><i class="fa-solid fa-circle-info text-gold"></i> Project Overview</h3>
+                    <h3><i class="fa-solid fa-circle-info text-gold"></i> Project Overview & Purpose</h3>
                     <p class="p2-cs-lead">${data.overview}</p>
                     <div class="p2-cs-meta-grid">
-                        <div><strong>Problem Statement:</strong> <p>${data.problem}</p></div>
+                        <div><strong>Use Case & Need (Problem Statement):</strong> <p>${data.problem}</p></div>
                         <div><strong>Target Audience:</strong> <p>${data.targetUsers}</p></div>
-                        <div><strong>My Role:</strong> <p>${data.role}</p></div>
+                        <div><strong>My Technical Role:</strong> <p>${data.role}</p></div>
                     </div>
                 </div>
 
@@ -313,14 +324,14 @@
                     </div>
                 </div>
 
-                <!-- Interactive Architecture Diagram (Feature 3) -->
+                <!-- Interactive Architecture Diagram -->
                 <div class="p2-cs-section glass-panel">
                     <h3><i class="fa-solid fa-diagram-project text-gold"></i> Interactive System Architecture Diagram</h3>
                     <p class="p2-cs-subtext">Click on any component node below to view technical execution details and protocol specifications.</p>
                     <div id="p2ArchDiagramContainer_${projectId}" class="p2-arch-diagram-wrapper"></div>
                 </div>
 
-                <!-- Safe Mini Project Interactive Demo (Feature 4) -->
+                <!-- Safe Mini Project Interactive Demo -->
                 <div class="p2-cs-section glass-panel">
                     <h3><i class="fa-solid fa-laptop-code text-green"></i> Live Interactive Mini Demo</h3>
                     <p class="p2-cs-subtext">Experience a client-side simulated demonstration of key features.</p>
@@ -360,7 +371,7 @@
         document.body.style.overflow = 'hidden';
 
         // Render Architecture Diagram
-        p2RenderArchDiagram(`p2ArchDiagramContainer_${projectId}`, data.architecture);
+        p2RenderArchDiagram(`p2ArchDiagramContainer_${projectId}`, data.architecture, data);
 
         // Render Mini Demo
         p2InitMiniDemo(`p2MiniDemoContainer_${projectId}`, data.demoType);
@@ -395,11 +406,57 @@
     }
 
     // ----------------------------------------------------------------------
-    // 3. INTERACTIVE ARCHITECTURE DIAGRAM ENGINE
+    // 3. INTERACTIVE ARCHITECTURE DIAGRAM ENGINE WITH UI IMAGE PREVIEWS
     // ----------------------------------------------------------------------
-    function p2RenderArchDiagram(containerId, archData) {
+    const p2UniqueNodeImages = [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80"
+    ];
+
+    function p2GetNodeImage(node, idx, projectData) {
+        if (node && (node.image || node.img)) return node.image || node.img;
+        const projId = (projectData && projectData.id) ? parseInt(projectData.id, 10) : 1;
+        if (idx === 0 && projectData && projectData.image) return projectData.image;
+        
+        const uniqueIndex = (projId * 7 + idx * 11) % p2UniqueNodeImages.length;
+        return p2UniqueNodeImages[uniqueIndex];
+    }
+
+    function p2RenderArchDiagram(containerId, archData, projectData) {
         const container = document.getElementById(containerId);
-        if (!container || !archData) return;
+        if (!container || !archData || !archData.nodes || archData.nodes.length === 0) return;
+
+        const firstNode = archData.nodes[0];
+        const initialImg = p2GetNodeImage(firstNode, 0, projectData);
 
         let nodesHTML = archData.nodes.map((n, idx) => `
             <div class="p2-arch-node-item">
@@ -418,14 +475,22 @@
                 </div>
                 <div class="p2-arch-detail-panel" id="${containerId}_detail">
                     <div class="p2-arch-detail-badge"><i class="fa-solid fa-microchip"></i> COMPONENT SPECIFICATION</div>
-                    <h4 id="${containerId}_title">${archData.nodes[0].name}</h4>
-                    <p id="${containerId}_desc">${archData.nodes[0].desc}</p>
+                    <h4 id="${containerId}_title">${firstNode.name}</h4>
+                    <p id="${containerId}_desc">${firstNode.desc}</p>
+                    <div class="p2-arch-img-preview" style="margin-top: 1.2rem; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-glow); box-shadow: 0 6px 24px rgba(0,0,0,0.6); position: relative; background: #070609;">
+                        <img id="${containerId}_img" src="${initialImg}" alt="${firstNode.name} UI Preview" style="width: 100%; height: 230px; object-fit: cover; display: block; transition: transform 0.4s ease, opacity 0.3s ease;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(7,6,9,0.95) 0%, rgba(7,6,9,0) 100%); padding: 0.6rem 1rem; color: var(--accent-gold); font-family: var(--font-mono); font-size: 0.76rem; display: flex; align-items: center; justify-content: space-between; pointer-events: none;">
+                            <span><i class="fa-solid fa-laptop-code" style="margin-right:0.35rem; color:var(--accent-green);"></i> Visual Component UI Spec</span>
+                            <span style="color: var(--text-muted); font-size: 0.7rem;" id="${containerId}_img_tag">Interactive Live Render</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
 
         // Store data reference on container for node clicks
         container._archNodes = archData.nodes;
+        container._projectData = projectData;
     }
 
     window.p2SelectArchNode = function (containerId, index) {
@@ -449,8 +514,19 @@
         // Update details panel
         const titleElem = document.getElementById(`${containerId}_title`);
         const descElem = document.getElementById(`${containerId}_desc`);
+        const imgElem = document.getElementById(`${containerId}_img`);
+
         if (titleElem) titleElem.textContent = targetNode.name;
         if (descElem) descElem.textContent = targetNode.desc;
+        if (imgElem) {
+            imgElem.style.opacity = '0.3';
+            setTimeout(() => {
+                const nodeImg = p2GetNodeImage(targetNode, index, container._projectData);
+                imgElem.src = nodeImg;
+                imgElem.alt = `${targetNode.name} UI Preview`;
+                imgElem.style.opacity = '1';
+            }, 150);
+        }
     };
 
     // ----------------------------------------------------------------------
@@ -902,7 +978,7 @@
     window.p2OpenResumeCustomizer = function () {
         const modal = document.getElementById('p2ResumeCustomizerModal');
         if (!modal) return;
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         p2SelectResumeRole(p2SelectedResumeRole);
     };
@@ -1019,7 +1095,7 @@
         printWin.document.close();
 
         if (typeof p2ShowToastNotification === 'function') {
-            p2ShowToastNotification(\`<i class="fa-solid fa-wand-magic-sparkles"></i> Generated \${roleTitle} Tailored Resume!\`, true);
+            p2ShowToastNotification(`<i class="fa-solid fa-wand-magic-sparkles"></i> Generated ${roleTitle} Tailored Resume!`, true);
         }
     };
 

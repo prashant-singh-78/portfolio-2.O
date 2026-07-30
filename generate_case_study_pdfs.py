@@ -54,6 +54,69 @@ link_style = ParagraphStyle(
 
 projects_data = [
     {
+        "filename": "deta-hub-case-study.pdf",
+        "title": "Deta Hub",
+        "subtitle": "DATASET DISCOVERY & AI RESOURCE PLATFORM",
+        "overview": "Curated dataset discovery and management portal connecting data engineers and machine learning practitioners with structured datasets across CV, NLP, and tabular domains.",
+        "problem": "ML developers spend excessive time searching for clean, verified, properly formatted datasets distributed across scattered web sources.",
+        "solution": "Built a high-performance dataset catalog with real-time text search, category filtering, schema previews, and direct access links.",
+        "features": [
+            "Categorized directory (Computer Vision, NLP, Tabular, Audio)",
+            "Instant client-side search with dynamic tag filter",
+            "Dataset detail cards featuring sample rows & schema specs",
+            "Developer dataset upload workflow with format verification"
+        ],
+        "arch": "React Interface → REST API Router → Search Indexing Engine → Metadata Store → Static File CDN",
+        "tech": "React, Vite, JavaScript, HTML5, CSS3 Glassmorphism, Node.js API, Vercel",
+        "role": "Lead Full-Stack Web Developer",
+        "challenges": "Optimized catalog search indexing to maintain sub-16ms UI frame rates on mobile viewports during fast typing.",
+        "results": "Accelerated dataset discovery for ML developers with instant category filtering.",
+        "live": "https://deta-hub.vercel.app",
+        "github": "https://github.com/prashant-singh-78"
+    },
+    {
+        "filename": "snake-verse-case-study.pdf",
+        "title": "Snake Verse",
+        "subtitle": "AI & COMPUTER VISION SPECIES CLASSIFIER",
+        "overview": "AI-powered deep-learning web application that identifies snake species from an uploaded image.",
+        "problem": "Rapidly identifying venomous versus non-venomous snake species in nature is difficult for non-experts, creating severe safety risks.",
+        "solution": "Built an end-to-end computer vision web app combining OpenCV image preprocessing with a trained TensorFlow CNN model.",
+        "features": [
+            "Drag-and-drop image upload with real-time browser preview",
+            "Automated image pre-processing and color channel normalization",
+            "Deep CNN multi-class species classification",
+            "Venom risk severity warnings & safety guidelines"
+        ],
+        "arch": "Web UI → Flask Backend → OpenCV Preprocessor → TensorFlow CNN → Vercel Host",
+        "tech": "Python, Flask, TensorFlow, Keras, OpenCV, NumPy, HTML, CSS, JavaScript",
+        "role": "AI / ML Engineer & Web Developer",
+        "challenges": "Handled wild image lighting variations via heavy data augmentation (rotations, brightness scaling, color jitter).",
+        "results": "Instantaneous species prediction with clear safety risk indicators.",
+        "live": "https://snake-verse-five.vercel.app",
+        "github": "https://github.com/prashant-singh-78"
+    },
+    {
+        "filename": "skill-nova-case-study.pdf",
+        "title": "Courses Platform — Skill.Nova",
+        "subtitle": "EDTECH PLATFORM & CAREER ROADMAPS",
+        "overview": "Responsive online learning platform helping students explore career-oriented tech courses, guided learning roadmaps, and mentor profiles.",
+        "problem": "Aspiring developers struggle to find structured career paths amidst unstructured online tutorials.",
+        "solution": "Architected an interactive EdTech platform featuring guided career roadmaps, filterable course tracks, and support counseling.",
+        "features": [
+            "Interactive course directory with filterable career tracks",
+            "Guided learning path visualization & syllabus roadmaps",
+            "Mentor showcase, student testimonials, and outcome telemetry",
+            "Integrated support counseling forms & guidance"
+        ],
+        "arch": "React Client → Express API Gateway → Course Catalog Store → Vercel Host",
+        "tech": "React, Vite, JavaScript, Tailwind CSS, Lucide React, Express, Vercel",
+        "role": "Full-Stack EdTech Architect",
+        "challenges": "Optimized nested course curriculum rendering with React memoization.",
+        "results": "Delivered an intuitive platform streamlining tech career path discovery.",
+        "live": "https://courses-plateform.vercel.app",
+        "github": "https://github.com/prashant-singh-78"
+    },
+    {
         "filename": "studyshield-case-study.pdf",
         "title": "StudyShield",
         "subtitle": "PRODUCTIVITY & CHROME EXTENSION PLATFORM",
@@ -73,48 +136,6 @@ projects_data = [
         "results": "Proven zero false-positive site blocks and hundreds of recorded deep-work focus hours.",
         "live": "https://github.com/prashant-singh-78/SWD.git",
         "github": "https://github.com/prashant-singh-78/SWD.git"
-    },
-    {
-        "filename": "mockmate-case-study.pdf",
-        "title": "Mockmate",
-        "subtitle": "AI INTERVIEW & SKILL PASSPORT ENGINE",
-        "overview": "AI-powered interview preparation platform evaluating candidate resumes, conducting technical viva assessments, and generating verifiable Skill Passports.",
-        "problem": "Candidates lack realistic technical interview practice with instant feedback, while recruiters struggle to verify real skill levels.",
-        "solution": "Architected an interactive evaluation system combining OpenAI LLM prompts, client-side Python execution via Pyodide, and automated scoring.",
-        "features": [
-            "Resume parsing & natural language skill extraction",
-            "Dynamic technical viva & domain interview question generation",
-            "Browser-based Pyodide Python execution sandbox",
-            "Evidence-backed shareable Skill Passport generation"
-        ],
-        "arch": "React Client → FastAPI Gateway → Pyodide WASM Engine → OpenAI API → PostgreSQL DB → Vercel",
-        "tech": "React, TypeScript, FastAPI, Python, PostgreSQL, Pyodide WASM, OpenAI API, Vercel",
-        "role": "Creator & AI Engineer",
-        "challenges": "Eliminated LLM grading inconsistencies via strict JSON evaluation rubrics and ran code safely on client via WebAssembly.",
-        "results": "Sub-3-second technical answer evaluation with automated verifiable candidate Skill Passports.",
-        "live": "https://mockmate-sandy.vercel.app",
-        "github": "https://github.com/prashant-singh-78"
-    },
-    {
-        "filename": "medicure-case-study.pdf",
-        "title": "MediCure",
-        "subtitle": "SMART HEALTHCARE & TRIAGE PLATFORM",
-        "overview": "Integrated healthcare accessibility portal offering preliminary symptom-guided analysis, provider registrations, and emergency ambulance dispatch.",
-        "problem": "Suburban areas face delayed preliminary healthcare advice, causing critical time loss during medical emergencies.",
-        "solution": "Developed a full-stack platform featuring a Random Forest symptom classifier, patient/doctor portals, and emergency location dispatch.",
-        "features": [
-            "Interactive symptom triage checker (educational guidance)",
-            "Patient & healthcare provider registration portals",
-            "Emergency ambulance dispatcher mockup with location routing",
-            "Medication directory and health precaution library"
-        ],
-        "arch": "React Frontend → FastAPI Backend → Scikit-Learn Classifier → Healthcare DB → Emergency Dispatcher",
-        "tech": "React, FastAPI, Python, Scikit-Learn, Random Forest, SQLite/PostgreSQL, Render",
-        "role": "Full-Stack & Machine Learning Lead",
-        "challenges": "Integrated prominent medical disclaimers on all outputs and built standardized symptom encoding pipelines.",
-        "results": "Delivered rapid symptom triage and emergency dispatch workflow coordination.",
-        "live": "https://github.com/prashant-singh-78/medicure.git",
-        "github": "https://github.com/prashant-singh-78/medicure.git"
     },
     {
         "filename": "novaerp-case-study.pdf",
@@ -138,25 +159,106 @@ projects_data = [
         "github": "https://github.com/prashant-singh-78"
     },
     {
-        "filename": "deta-hub-case-study.pdf",
-        "title": "Deta Hub",
-        "subtitle": "DATASET DISCOVERY & AI RESOURCE PLATFORM",
-        "overview": "Curated dataset discovery and management portal connecting data engineers and machine learning practitioners with structured datasets across CV, NLP, and tabular domains.",
-        "problem": "ML developers spend excessive time searching for clean, verified, properly formatted datasets distributed across scattered web sources.",
-        "solution": "Built a high-performance dataset catalog with real-time text search, category filtering, schema previews, and direct access links.",
+        "filename": "mockmate-case-study.pdf",
+        "title": "Mockmate",
+        "subtitle": "AI INTERVIEW & SKILL PASSPORT ENGINE",
+        "overview": "AI-powered interview preparation platform evaluating candidate resumes, conducting technical viva assessments, and generating verifiable Skill Passports.",
+        "problem": "Candidates lack realistic technical interview practice with instant feedback, while recruiters struggle to verify real skill levels.",
+        "solution": "Architected an interactive evaluation system combining OpenAI LLM prompts, client-side Python execution via Pyodide, and automated scoring.",
         "features": [
-            "Categorized directory (Computer Vision, NLP, Tabular, Audio)",
-            "Instant client-side search with dynamic tag filter",
-            "Dataset detail cards featuring sample rows & schema specs",
-            "Developer dataset upload workflow with format verification"
+            "Resume parsing & natural language skill extraction",
+            "Dynamic technical viva & domain interview question generation",
+            "Browser-based Pyodide Python execution sandbox",
+            "Evidence-backed shareable Skill Passport generation"
         ],
-        "arch": "React Interface → REST API Router → Search Indexing Engine → Metadata Store → Static File CDN",
-        "tech": "React, Vite, JavaScript, HTML5, CSS3 Glassmorphism, Node.js API, Vercel",
-        "role": "Lead Full-Stack Web Developer",
-        "challenges": "Optimized catalog search indexing to maintain sub-16ms UI frame rates on mobile viewports during fast typing.",
-        "results": "Accelerated dataset discovery for ML developers with instant category filtering.",
-        "live": "https://deta-hub.vercel.app",
+        "arch": "React Client → FastAPI Gateway → Pyodide WASM Engine → OpenAI API → PostgreSQL DB → Vercel",
+        "tech": "React, TypeScript, FastAPI, Python, PostgreSQL, Pyodide WASM, OpenAI API, Vercel",
+        "role": "Creator & AI Engineer",
+        "challenges": "Eliminated LLM grading inconsistencies via strict JSON evaluation rubrics and ran code safely on client via WebAssembly.",
+        "results": "Sub-3-second technical answer evaluation with automated verifiable candidate Skill Passports.",
+        "live": "https://mockmate-sandy.vercel.app",
         "github": "https://github.com/prashant-singh-78"
+    },
+    {
+        "filename": "ai-coach-case-study.pdf",
+        "title": "AI Coach",
+        "subtitle": "CAREER & ATS AI PLATFORM",
+        "overview": "Intelligent career-preparation platform helping users optimize ATS resumes, match job descriptions, and practice viva questions via Google Gemini API.",
+        "problem": "Job applicants struggle to format resumes for ATS compliance and lack personalized feedback for technical rounds.",
+        "solution": "Built an ATS optimization platform combining spaCy NLP keyword parsing with Google Gemini LLM mock interview generation.",
+        "features": [
+            "ATS resume scoring & missing keyword detection",
+            "Job description skill matching using NLP semantic embeddings",
+            "Gemini API dynamic interview question generation",
+            "Real-time answer evaluation & performance feedback"
+        ],
+        "arch": "React Client → FastAPI Backend → spaCy NLP Engine → Gemini API → Vercel Host",
+        "tech": "React, Vite, FastAPI, Python, Google Gemini API, spaCy, SQLite, Vercel",
+        "role": "Lead AI Engineer",
+        "challenges": "Built layout-aware PDF parsers to group text blocks correctly across multi-column resumes.",
+        "results": "Boosted candidate ATS resume scoring match rates by over 40%.",
+        "live": "https://ai-coach-ochre-pi.vercel.app",
+        "github": "https://github.com/prashant-singh-78"
+    },
+    {
+        "filename": "streamlite-case-study.pdf",
+        "title": "StreamLite",
+        "subtitle": "MEDIA STREAMING PLATFORM",
+        "overview": "Subscription-based video streaming platform supporting user authentication, video playback, content uploads, and administrative video management.",
+        "problem": "Building lightweight video streaming portals requires low-overhead video delivery and subscription access control.",
+        "solution": "Developed a Node.js & MySQL media streaming platform with user roles and dynamic video streaming.",
+        "features": [
+            "User account registration & subscription management",
+            "Optimized video player with smooth playback",
+            "Admin dashboard for video uploading & content taxonomy"
+        ],
+        "arch": "Web Client → Node.js Server → MySQL DB → Media Storage → Vercel CDN",
+        "tech": "HTML, CSS, JavaScript, Node.js, Express, MySQL, Vercel",
+        "role": "Full-Stack Web Developer",
+        "challenges": "Implemented video chunking to ensure smooth playback on slower mobile connections.",
+        "results": "Delivered a fully responsive media streaming portal.",
+        "live": "https://streamlite-vrvp.vercel.app/",
+        "github": "https://github.com/prashant-singh-78"
+    },
+    {
+        "filename": "anime-verse-case-study.pdf",
+        "title": "Anime Verse",
+        "subtitle": "INTERACTIVE WEB EXPERIENCE",
+        "overview": "Naruto-themed interactive web portal allowing fans to explore characters, jutsu abilities, memorable battles, character quizzes, and animations.",
+        "problem": "Generic fandom wiki pages lack interactive, visually engaging experiences and immersive lore exploration.",
+        "solution": "Created a rich interactive client-side web application featuring character modals, audio FX, and trivia games.",
+        "features": [
+            "Interactive character cards with jutsu & backstory modals",
+            "Dynamic trivia quiz with real-time score tracking",
+            "Parallax scrolling animations and sound effects"
+        ],
+        "arch": "Browser Client → DOM Event Engine → Local Storage → GitHub Pages Host",
+        "tech": "HTML5, CSS3, JavaScript ES6+, GitHub Pages",
+        "role": "Frontend Experience Architect",
+        "challenges": "Hardware-accelerated CSS transforms to preserve 60fps animations on mobile screens.",
+        "results": "Engaged hundreds of anime fans with interactive web experiences.",
+        "live": "https://prashant-singh-78.github.io/anime-verse/",
+        "github": "https://github.com/prashant-singh-78/anime-verse"
+    },
+    {
+        "filename": "image-ml-case-study.pdf",
+        "title": "Image.ML",
+        "subtitle": "MACHINE LEARNING CNN CLASSIFIER",
+        "overview": "Machine-learning computer vision pipeline trained on a custom dataset to perform binary and multi-class image classification (Cat vs Non-Cat detection).",
+        "problem": "Demonstrating end-to-end ML model training, evaluation, and web deployment with custom dataset pipelines.",
+        "solution": "Trained a deep Convolutional Neural Network (CNN) in TensorFlow/Keras and served inference via a Flask REST API.",
+        "features": [
+            "Custom dataset ingestion and data augmentation pipeline",
+            "Deep CNN architecture trained with Keras/TensorFlow",
+            "Flask REST API serving real-time image evaluation predictions"
+        ],
+        "arch": "Web UI → Flask Gateway → NumPy Preprocessor → TensorFlow CNN → Render Host",
+        "tech": "Python, TensorFlow, Keras, NumPy, OpenCV, Flask, HTML, CSS, JavaScript",
+        "role": "Machine Learning Specialist",
+        "challenges": "Applied Dropout layers and L2 regularization to prevent overfitting on limited training data.",
+        "results": "Achieved over 90% classification accuracy on evaluation benchmarks.",
+        "live": "https://github.com/prashant-singh-78/image.ml.git",
+        "github": "https://github.com/prashant-singh-78/image.ml.git"
     },
     {
         "filename": "skin-disease-predictor-case-study.pdf",
@@ -178,6 +280,110 @@ projects_data = [
         "results": "Lightweight computer vision model returning skin condition predictions in under 1.2 seconds.",
         "live": "https://github.com/prashant-singh-78/skin-desease.ml.git",
         "github": "https://github.com/prashant-singh-78/skin-desease.ml.git"
+    },
+    {
+        "filename": "medicure-case-study.pdf",
+        "title": "MediCure",
+        "subtitle": "SMART HEALTHCARE & TRIAGE PLATFORM",
+        "overview": "Integrated healthcare accessibility portal offering preliminary symptom-guided analysis, provider registrations, and emergency ambulance dispatch.",
+        "problem": "Suburban areas face delayed preliminary healthcare advice, causing critical time loss during medical emergencies.",
+        "solution": "Developed a full-stack platform featuring a Random Forest symptom classifier, patient/doctor portals, and emergency location dispatch.",
+        "features": [
+            "Interactive symptom triage checker (educational guidance)",
+            "Patient & healthcare provider registration portals",
+            "Emergency ambulance dispatcher mockup with location routing",
+            "Medication directory and health precaution library"
+        ],
+        "arch": "React Frontend → FastAPI Backend → Scikit-Learn Classifier → Healthcare DB → Emergency Dispatcher",
+        "tech": "React, FastAPI, Python, Scikit-Learn, Random Forest, SQLite/PostgreSQL, Render",
+        "role": "Full-Stack & Machine Learning Lead",
+        "challenges": "Integrated prominent medical disclaimers on all outputs and built standardized symptom encoding pipelines.",
+        "results": "Delivered rapid symptom triage and emergency dispatch workflow coordination.",
+        "live": "https://github.com/prashant-singh-78/medicure.git",
+        "github": "https://github.com/prashant-singh-78/medicure.git"
+    },
+    {
+        "filename": "jarvis-case-study.pdf",
+        "title": "Jarvis — Mikasa Voice Assistant",
+        "subtitle": "AI VOICE ASSISTANT & SYSTEM AUTOMATION",
+        "overview": "AI-powered desktop voice assistant automating computer tasks with speech recognition, Google Gemini API intelligence, and MediaPipe gesture controls.",
+        "problem": "Executing repetitive desktop tasks requires manual mouse and keyboard navigation.",
+        "solution": "Built a Python desktop voice assistant leveraging Gemini API intent parsing, speech synthesis, and MediaPipe vision controls.",
+        "features": [
+            "Real-time speech recognition & text-to-speech voice synthesis",
+            "Google Gemini API integration for intelligent intent parsing",
+            "MediaPipe & OpenCV gesture recognition for touchless controls",
+            "PowerShell system automation scripts for launching desktop apps"
+        ],
+        "arch": "Mic / Camera Input → Speech Engine → Gemini API → PowerShell Exec → Voice Output",
+        "tech": "Python, Google Gemini API, SpeechRecognition, OpenCV, MediaPipe, PowerShell",
+        "role": "Lead AI & Voice Developer",
+        "challenges": "Calibrated dynamic ambient noise thresholds to prevent unwanted background command execution.",
+        "results": "Delivered a hands-free desktop voice assistant executing system commands effortlessly.",
+        "live": "https://github.com/prashant-singh-78/jarvis.git",
+        "github": "https://github.com/prashant-singh-78/jarvis.git"
+    },
+    {
+        "filename": "krashi-kalyan-case-study.pdf",
+        "title": "Krashi Kalyan",
+        "subtitle": "AGRITECH & DATA INSIGHTS PLATFORM",
+        "overview": "Agriculture-support platform providing soil analysis, crop recommendation, crop disease risk information, weather updates, and market-price transparency.",
+        "problem": "Farmers in rural regions lack real-time digital insights for optimal crop selection and direct market price comparisons.",
+        "solution": "Developed an accessible agritech portal combining Scikit-Learn soil recommendation models with live weather APIs.",
+        "features": [
+            "Soil health parameter analyzer providing ML crop recommendations",
+            "Weather forecast and disease risk advisory dashboard",
+            "Market price comparison tool across regional mandis",
+            "High-contrast multilingual farmer-friendly interface"
+        ],
+        "arch": "Farmer Web UI → FastAPI Service → Weather API → Scikit-Learn Model → Render Host",
+        "tech": "HTML, CSS, JavaScript, Chart.js, Flask/FastAPI, Python, Scikit-Learn, Render",
+        "role": "Agritech Platform Lead",
+        "challenges": "Simplified UI with icon-based navigation for users with low digital literacy.",
+        "results": "Created a comprehensive agricultural decision-support platform.",
+        "live": "https://github.com/prashant-singh-78/krashi-kalyan.git",
+        "github": "https://github.com/prashant-singh-78/krashi-kalyan.git"
+    },
+    {
+        "filename": "weather-forecast-case-study.pdf",
+        "title": "Weather Forecast App",
+        "subtitle": "REAL-TIME API WEB APPLICATION",
+        "overview": "Real-time weather forecast application displaying live temperature, humidity, wind speeds, and meteorological conditions for global cities.",
+        "problem": "Users require instant, clean, reliable weather forecasting without invasive advertisements.",
+        "solution": "Built a responsive glassmorphism web application consuming OpenWeatherMap REST APIs.",
+        "features": [
+            "Instant city search with auto-complete and error handling",
+            "Live temperature, humidity, wind speed, and pressure metrics",
+            "Dynamic background visuals matching current weather conditions",
+            "Fully responsive glassmorphism UI layout"
+        ],
+        "arch": "Search UI → Fetch Layer → OpenWeatherMap API → Dynamic DOM Render → GitHub Pages",
+        "tech": "HTML5, CSS3, JavaScript ES6, OpenWeatherMap API, GitHub Pages",
+        "role": "Frontend Developer",
+        "challenges": "Handled 404 API responses gracefully with user-friendly toast alerts.",
+        "results": "Delivered a sleek weather dashboard with sub-second response times.",
+        "live": "https://prashant-singh-78.github.io/weather-forecast/",
+        "github": "https://github.com/prashant-singh-78/weather-forecast"
+    },
+    {
+        "filename": "old-portfolio-case-study.pdf",
+        "title": "Old Portfolio",
+        "subtitle": "PORTFOLIO WEBSITE",
+        "overview": "Personal developer portfolio website showcasing academic background, technical skills, AI/ML projects, and contact channels.",
+        "problem": "Presenting a clean online presence to showcase software projects to recruiters.",
+        "solution": "Created a dark theme developer portfolio featuring project galleries and contact links.",
+        "features": [
+            "Clean dark theme design system with smooth navigation",
+            "Filterable project gallery showcasing web & AI applications",
+            "Contact section with direct email integration and resume download"
+        ],
+        "arch": "Web Client → Vercel Global CDN",
+        "tech": "HTML5, CSS3, JavaScript, Vercel",
+        "role": "Developer & Designer",
+        "challenges": "Ensured seamless mobile responsiveness across diverse device viewports.",
+        "results": "Established an effective developer web portfolio.",
+        "live": "https://prashant08.vercel.app/",
+        "github": "https://github.com/prashant-singh-78"
     }
 ]
 

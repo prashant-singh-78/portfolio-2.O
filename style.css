@@ -3567,7 +3567,18 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     color: #000;
 }
 
-/* --- Comprehensive Mobile Responsiveness Enhancements --- */
+/* --------------------------------------------------------------------------
+   COMPREHENSIVE 100% MOBILE RESPONSIVENESS SYSTEM
+   -------------------------------------------------------------------------- */
+
+/* Global Anti-Overflow */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Breakpoint 1024px & Below */
 @media (max-width: 1024px) {
     .p2-rec-banner-grid {
         grid-template-columns: 1fr;
@@ -3578,35 +3589,147 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     }
 
     .p2-arch-flow-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem;
+    }
+
+    .p2-arch-nodes-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .p2-arch-node-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .p2-arch-arrow {
+        transform: rotate(-90deg);
+        margin: 0;
+    }
+
+    .p2-arch-node {
+        width: auto !important;
+        min-width: 110px;
+        padding: 0.45rem 0.85rem !important;
+        font-size: 0.82rem !important;
     }
 }
 
+/* Breakpoint 768px (Mobile & Small Tablets) */
 @media (max-width: 768px) {
-    .p2-cs-modal {
-        padding: 0.5rem !important;
+    section {
+        padding: 3.5rem 1rem !important;
     }
 
-    .p2-cs-modal-content {
-        max-width: 100% !important;
-        max-height: 92vh !important;
-        padding: 1.1rem !important;
-        border-radius: 12px !important;
-        overflow-x: hidden !important;
+    .section-title {
+        font-size: 1.85rem !important;
+        margin-bottom: 2rem !important;
     }
 
-    .p2-modal-overlay {
-        padding: 1rem;
+    .hero-section {
+        padding: 5.5rem 1rem 3rem 1rem !important;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .project-card {
+        margin: 0 !important;
+    }
+
+    .project-img-wrapper {
+        height: 200px !important;
+    }
+
+    .project-actions {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .project-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Modal Overlays Mobile Adaptations */
+    .p2-modal-overlay, .p2-cs-modal {
+        padding: 0.4rem !important;
+    }
+
+    .p2-modal-content, .p2-cs-modal-content {
+        width: 98vw !important;
+        max-width: 98vw !important;
+        max-height: 94vh !important;
+        padding: 1.2rem 1rem !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+        margin: auto !important;
     }
 
     .p2-cs-header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 1rem;
     }
 
+    .p2-cs-header-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .p2-cs-header-actions .btn {
+        flex: 1 1 calc(50% - 0.4rem);
+        justify-content: center;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.6rem;
+    }
+
+    .p2-cs-grid-2col, .p2-cs-meta-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .p2-cs-footer-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .p2-cs-footer-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .p2-arch-detail-panel {
+        padding: 1rem !important;
+    }
+
+    .p2-arch-img-preview img {
+        height: 180px !important;
+    }
+
     .p2-dash-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     .p2-role-tab {
@@ -3620,19 +3743,22 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     #p2CustomResumePreview {
         padding: 1rem !important;
     }
+
+    .ai-chat-toggle, .ai-console-toggle {
+        font-size: 0.75rem !important;
+        padding: 0.6rem 0.9rem !important;
+    }
 }
 
+/* Breakpoint 480px (Small Mobile Screens) */
 @media (max-width: 480px) {
-    .p2-cs-modal-content h2 {
-        font-size: 1.4rem !important;
+    .p2-cs-modal-content h2, .p2-rec-title, .p2-cs-title {
+        font-size: 1.35rem !important;
     }
 
-    .p2-rec-title {
-        font-size: 1.4rem !important;
-    }
-
-    .p2-cs-title {
-        font-size: 1.3rem !important;
+    .p2-cs-header-actions .btn {
+        flex: 1 1 100% !important;
+        width: 100% !important;
     }
 
     .p2-role-tab {
@@ -3650,6 +3776,11 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
         width: 100% !important;
         justify-content: center !important;
         text-align: center !important;
+    }
+
+    .skills-filter-btn, .projects-filter-btn {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 0.75rem !important;
     }
 }
 
