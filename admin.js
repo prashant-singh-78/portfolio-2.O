@@ -7,47 +7,108 @@
 (function () {
     'use strict';
 
-    const STORAGE_KEY_AUTH = 'portfolio2_admin_session';
-    const STORAGE_KEY_PHOTO = 'portfolio2_custom_photo';
-    const STORAGE_KEY_CONFIG = 'portfolio2_admin_config';
+    // Secure SHA-256 Hash of Admin Secret Password (Prashant#AI2026!Secure)
+    const ADMIN_USER_ID = 'prashant_admin_78';
+    const ADMIN_EMAIL_ID = 'prashant.admin@portfolio2.io';
+    const SECURE_PASS_HASH = '96efd90ca8b06e472344e5175c2314938612d71fb2fc1c1355f5cc14d9047f42';
+    
+    // Session Timeout: 2 Hours (7200000 ms)
+    const SESSION_DURATION = 7200000;
 
     document.addEventListener('DOMContentLoaded', function () {
         p2AdminCheckSession();
     });
 
+    // Helper: Compute SHA-256 hash using native browser Web Crypto API
+    async function p2Sha256(str) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(str);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
     window.p2AdminCheckSession = function () {
-        const session = localStorage.getItem(STORAGE_KEY_AUTH);
+        const sessionStr = localStorage.getItem(STORAGE_KEY_AUTH);
         const authPanel = document.getElementById('p2AdminAuthPanel');
         const dashPanel = document.getElementById('p2AdminDashboardPanel');
 
-        if (session === 'active') {
+        let isValid = false;
+        if (sessionStr) {
+            try {
+                const sessionObj = JSON.parse(sessionStr);
+                const now = Date.now();
+                if (sessionObj.authenticated && (now - sessionObj.timestamp < SESSION_DURATION)) {
+                    isValid = true;
+                }
+            } catch (err) {
+                isValid = false;
+            }
+        }
+
+        if (isValid) {
             if (authPanel) authPanel.style.display = 'none';
             if (dashPanel) dashPanel.style.display = 'block';
             p2LoadAdminDashboardData();
         } else {
+            localStorage.removeItem(STORAGE_KEY_AUTH);
             if (authPanel) authPanel.style.display = 'block';
             if (dashPanel) dashPanel.style.display = 'none';
         }
     };
 
-    window.p2AdminHandleLogin = function (e) {
+    let p2FailedAttempts = 0;
+    let p2LockoutUntil = 0;
+
+    window.p2AdminHandleLogin = async function (e) {
         if (e) e.preventDefault();
         const email = document.getElementById('adminEmail').value.trim();
         const password = document.getElementById('adminPassword').value.trim();
         const alertBox = document.getElementById('p2AuthAlert');
 
-        if (!email || !password) {
-            p2ShowAdminAlert(alertBox, 'Please enter email and password.', 'error');
+        const now = Date.now();
+        if (now < p2LockoutUntil) {
+            const remSecs = Math.ceil((p2LockoutUntil - now) / 1000);
+            p2ShowAdminAlert(alertBox, `⛔ Account temporarily locked due to failed attempts. Try again in ${remSecs}s.`, 'error');
             return;
         }
 
-        // Check credentials (or Supabase Auth if client configured)
-        if (email.toLowerCase().includes('admin') || password.length >= 6) {
-            localStorage.setItem(STORAGE_KEY_AUTH, 'active');
-            p2ShowAdminAlert(alertBox, 'Authentication successful! Loading dashboard...', 'success');
-            setTimeout(p2AdminCheckSession, 800);
+        if (!email || !password) {
+            p2ShowAdminAlert(alertBox, 'Please enter your unique Admin ID/Email and Secret Password.', 'error');
+            return;
+        }
+
+        // Compute client-side SHA-256 hash of password
+        const inputHash = await p2Sha256(password);
+        const lowerEmail = email.toLowerCase();
+
+        // Verify ID & Cryptographic Hash
+        const isIdValid = (lowerEmail === ADMIN_EMAIL_ID || lowerEmail === ADMIN_USER_ID || lowerEmail === 'prashantbachhamadi@gmail.com');
+        const isPassValid = (inputHash === SECURE_PASS_HASH);
+
+        if (isIdValid && isPassValid) {
+            p2FailedAttempts = 0;
+            const sessionData = {
+                authenticated: true,
+                user: ADMIN_USER_ID,
+                timestamp: Date.now()
+            };
+            localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(sessionData));
+
+            // Clear inputs from DOM memory immediately for security
+            document.getElementById('adminPassword').value = '';
+
+            p2ShowAdminAlert(alertBox, '🔒 Authentication verified! Launching Admin Console...', 'success');
+            setTimeout(p2AdminCheckSession, 600);
         } else {
-            p2ShowAdminAlert(alertBox, 'Invalid credentials. Access denied.', 'error');
+            p2FailedAttempts++;
+            if (p2FailedAttempts >= 5) {
+                p2LockoutUntil = Date.now() + 15 * 60 * 1000; // 15-min lockout
+                p2ShowAdminAlert(alertBox, '⛔ Too many failed login attempts! Admin Portal locked for 15 minutes.', 'error');
+            } else {
+                const remaining = 5 - p2FailedAttempts;
+                p2ShowAdminAlert(alertBox, `❌ Invalid Admin ID or Password. (${remaining} attempt(s) remaining before lockout)`, 'error');
+            }
         }
     };
 
