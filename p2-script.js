@@ -48,30 +48,40 @@
     function p2ApplyRecruiterModeState() {
         const body = document.body;
         const navBtnText = document.getElementById('p2NavRecruiterText');
-        const heroContainer = document.getElementById('p2RecruiterHeroBanner');
+        let heroContainer = document.getElementById('p2RecruiterHeroBanner');
+
+        if (!heroContainer) {
+            p2RenderRecruiterHeroBanner();
+            heroContainer = document.getElementById('p2RecruiterHeroBanner');
+        }
 
         if (isRecruiterModeActive) {
             body.classList.add('p2-recruiter-mode-active');
             if (navBtnText) navBtnText.textContent = 'Exit Recruiter Mode';
             
-            // Show Recruiter Banner
             if (heroContainer) {
                 heroContainer.style.display = 'block';
-            } else {
-                p2RenderRecruiterHeroBanner();
+                heroContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
-            // Scroll smoothly to Recruiter Banner
-            const bannerElem = document.getElementById('p2RecruiterHeroBanner');
-            if (bannerElem) {
-                bannerElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            // Highlight top recruiter project cards
+            const topIds = [4, 6, 12, 5, 1, 11];
+            document.querySelectorAll('.project-card').forEach(card => {
+                const id = parseInt(card.getAttribute('data-id'), 10);
+                if (topIds.includes(id)) {
+                    card.classList.add('p2-recruiter-highlight');
+                }
+            });
         } else {
             body.classList.remove('p2-recruiter-mode-active');
             if (navBtnText) navBtnText.textContent = 'Recruiter Mode';
             if (heroContainer) {
                 heroContainer.style.display = 'none';
             }
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.classList.remove('p2-recruiter-highlight');
+            });
         }
     }
 

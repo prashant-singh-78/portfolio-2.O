@@ -2884,6 +2884,11 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     color: #fff;
 }
 
+.project-card.p2-recruiter-highlight {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 0 20px var(--accent-gold-glow) !important;
+}
+
 /* --- Recruiter Hero Briefing Banner --- */
 .p2-recruiter-banner {
     max-width: 1350px;

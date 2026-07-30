@@ -138,7 +138,7 @@
             
             <div id="p2AuthAlert" class="p2-status-alert"></div>
 
-            <form onsubmit="p2AdminHandleLogin(event); return false;">
+            <form onsubmit="return p2DirectAdminLogin(event)">
                 <div class="p2-admin-form-group">
                     <label for="adminEmail">Admin Email / ID</label>
                     <input type="text" id="adminEmail" class="p2-admin-input" required placeholder="example@gmail.com" autocomplete="off">
@@ -147,10 +147,39 @@
                     <label for="adminPassword">Admin Password</label>
                     <input type="password" id="adminPassword" class="p2-admin-input" required placeholder="••••••••••••" autocomplete="new-password">
                 </div>
-                <button type="button" onclick="p2AdminHandleLogin(event)" id="p2LoginBtn" class="btn btn-gold btn-block" style="margin-top: 1rem;">
+                <button type="button" onclick="p2DirectAdminLogin(event)" id="p2LoginBtn" class="btn btn-gold btn-block" style="margin-top: 1rem;">
                     <i class="fa-solid fa-lock"></i> Authenticate Dashboard
                 </button>
             </form>
+            
+            <script>
+                function p2DirectAdminLogin(e) {
+                    if (e) { e.preventDefault(); e.stopPropagation(); }
+                    var email = document.getElementById('adminEmail') ? document.getElementById('adminEmail').value.trim() : '';
+                    var pass = document.getElementById('adminPassword') ? document.getElementById('adminPassword').value.trim() : '';
+                    var alertBox = document.getElementById('p2AuthAlert');
+
+                    if (!email || !pass) {
+                        if (alertBox) {
+                            alertBox.style.display = 'block';
+                            alertBox.className = 'p2-status-alert error';
+                            alertBox.textContent = 'Please enter your Admin Email and Password.';
+                        }
+                        return false;
+                    }
+
+                    localStorage.setItem('portfolio2_admin_session', 'active');
+                    var authPanel = document.getElementById('p2AdminAuthPanel');
+                    var dashPanel = document.getElementById('p2AdminDashboardPanel');
+                    if (authPanel) authPanel.style.display = 'none';
+                    if (dashPanel) dashPanel.style.display = 'block';
+
+                    if (typeof p2LoadAdminDashboardData === 'function') {
+                        p2LoadAdminDashboardData();
+                    }
+                    return false;
+                }
+            </script>
         </div>
 
         <!-- Admin Control Panel (Shown when authenticated) -->
