@@ -72,6 +72,8 @@
                     card.classList.add('p2-recruiter-highlight');
                 }
             });
+
+            p2ShowToastNotification('<i class="fa-solid fa-user-tie"></i> Recruiter Mode Enabled! Top 6 projects highlighted.', true);
         } else {
             body.classList.remove('p2-recruiter-mode-active');
             if (navBtnText) navBtnText.textContent = 'Recruiter Mode';
@@ -82,7 +84,48 @@
             document.querySelectorAll('.project-card').forEach(card => {
                 card.classList.remove('p2-recruiter-highlight');
             });
+
+            p2ShowToastNotification('<i class="fa-solid fa-rotate-left"></i> Returned to Standard Portfolio View', false);
         }
+    }
+
+    function p2ShowToastNotification(message, isSuccess = true) {
+        let toast = document.getElementById('p2ToastNotification');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'p2ToastNotification';
+            toast.style.position = 'fixed';
+            toast.style.bottom = '2rem';
+            toast.style.right = '2rem';
+            toast.style.zIndex = '99999';
+            toast.style.padding = '0.9rem 1.4rem';
+            toast.style.borderRadius = '12px';
+            toast.style.fontFamily = 'var(--font-mono)';
+            toast.style.fontSize = '0.9rem';
+            toast.style.fontWeight = '600';
+            toast.style.boxShadow = '0 0 25px rgba(0,0,0,0.5)';
+            toast.style.transition = 'all 0.3s ease';
+            document.body.appendChild(toast);
+        }
+
+        if (isSuccess) {
+            toast.style.background = 'rgba(255, 183, 3, 0.95)';
+            toast.style.color = '#000';
+            toast.style.border = '1px solid #ffb703';
+        } else {
+            toast.style.background = 'rgba(15, 23, 42, 0.95)';
+            toast.style.color = '#fff';
+            toast.style.border = '1px solid rgba(255,255,255,0.2)';
+        }
+
+        toast.innerHTML = message;
+        toast.style.display = 'block';
+        toast.style.opacity = '1';
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => { toast.style.display = 'none'; }, 300);
+        }, 3000);
     }
 
     function p2RenderRecruiterHeroBanner() {
