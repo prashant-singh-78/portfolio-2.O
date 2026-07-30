@@ -884,4 +884,133 @@
         }
     }
 
+    // ----------------------------------------------------------------------
+    // 6. RESUME CUSTOMIZER ENGINE
+    // ----------------------------------------------------------------------
+    let p2SelectedResumeRole = 'aiml';
+
+    window.p2OpenResumeCustomizer = function () {
+        const modal = document.getElementById('p2ResumeCustomizerModal');
+        if (!modal) return;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        p2SelectResumeRole(p2SelectedResumeRole);
+    };
+
+    window.p2CloseResumeCustomizer = function () {
+        const modal = document.getElementById('p2ResumeCustomizerModal');
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    };
+
+    window.p2SelectResumeRole = function (roleId) {
+        p2SelectedResumeRole = roleId;
+
+        // Update active tab buttons
+        document.querySelectorAll('.p2-role-tab').forEach(btn => {
+            if (btn.getAttribute('data-role') === roleId) {
+                btn.className = 'btn btn-gold p2-role-tab active';
+            } else {
+                btn.className = 'btn btn-outline p2-role-tab';
+            }
+        });
+
+        p2RenderCustomResumePreview(roleId);
+    };
+
+    function p2RenderCustomResumePreview(roleId) {
+        const previewContainer = document.getElementById('p2CustomResumePreview');
+        if (!previewContainer) return;
+
+        const data = window.portfolio2ResumeData;
+        if (!data || !data.roles || !data.roles[roleId]) return;
+
+        const roleData = data.roles[roleId];
+
+        // Format skills
+        const skillsPills = roleData.topSkills.map(s => `<span class="p2-pill" style="border-color: var(--accent-gold); color: var(--accent-gold);">${s}</span>`).join(' ');
+
+        // Format highlights
+        const highlightsList = roleData.keyHighlights.map(h => `<li><i class="fa-solid fa-check text-gold" style="margin-right: 0.5rem;"></i>${h}</li>`).join('');
+
+        previewContainer.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 1rem;">
+                <div>
+                    <h3 class="gradient-text" style="font-size: 1.4rem; margin-bottom: 0.2rem;">${data.candidateName}</h3>
+                    <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-gold);">${roleData.title}</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-muted); text-align: right; font-family: var(--font-mono);">
+                    <div><i class="fa-solid fa-envelope"></i> ${data.email}</div>
+                    <div><i class="fa-solid fa-location-dot"></i> ${data.location}</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; color: var(--accent-gold);"><i class="fa-solid fa-user text-gold"></i> Tailored Executive Summary</h4>
+                <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.6;">${roleData.summary}</p>
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem; color: var(--accent-gold);"><i class="fa-solid fa-layer-group text-gold"></i> Targeted Core Competencies</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                    ${skillsPills}
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: var(--accent-gold);"><i class="fa-solid fa-star text-gold"></i> Role-Specific Engineering Accomplishments</h4>
+                <ul style="list-style: none; padding-left: 0; font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    ${highlightsList}
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; color: var(--accent-gold);"><i class="fa-solid fa-graduation-cap text-gold"></i> Education & Achievements</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">${data.education[0].degree} — ${data.education[0].institution} (${data.education[0].period})</p>
+            </div>
+        `;
+    }
+
+    window.p2DownloadCustomizedResume = function () {
+        const data = window.portfolio2ResumeData;
+        const roleData = data && data.roles ? data.roles[p2SelectedResumeRole] : null;
+        const roleTitle = roleData ? roleData.title : 'Tailored';
+
+        // Trigger print/PDF view window for tailored layout
+        const printWin = window.open('', '_blank');
+        if (!printWin) {
+            if (typeof p2ShowToastNotification === 'function') {
+                p2ShowToastNotification('Please allow popups to download custom resume.', false);
+            }
+            return;
+        }
+
+        const previewContent = document.getElementById('p2CustomResumePreview').innerHTML;
+
+        printWin.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Prashant_Singh_${roleTitle.replace(/[^a-zA-Z0-9]/g, '_')}_Resume</title>
+                <style>
+                    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 2rem; color: #1e293b; line-height: 1.6; }
+                    .gradient-text { color: #0f172a; }
+                    .p2-pill { display: inline-block; padding: 3px 8px; border: 1px solid #0284c7; border-radius: 4px; font-size: 0.8rem; margin: 2px; }
+                    @media print { body { padding: 0; } }
+                </style>
+            </head>
+            <body>
+                ${previewContent}
+                <script>window.onload = function() { window.print(); };<\/script>
+            </body>
+            </html>
+        `);
+        printWin.document.close();
+
+        if (typeof p2ShowToastNotification === 'function') {
+            p2ShowToastNotification(\`<i class="fa-solid fa-wand-magic-sparkles"></i> Generated \${roleTitle} Tailored Resume!\`, true);
+        }
+    };
+
 })();

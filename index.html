@@ -94,6 +94,9 @@
                         <button type="button" class="btn btn-outline p2-hero-recruiter-btn" onclick="p2ToggleRecruiterMode()">
                             <i class="fa-solid fa-user-tie"></i> Recruiter Mode
                         </button>
+                        <button type="button" class="btn btn-outline" onclick="p2OpenResumeCustomizer()" title="Tailor Resume for specific job roles">
+                            <i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Tailor Resume
+                        </button>
                         <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
                             <i class="fa-solid fa-file-arrow-down"></i> Download Resume
                         </a>
@@ -165,8 +168,11 @@
                     </div>
 
                     <div class="p2-rec-actions">
-                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-gold">
-                            <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                        <button type="button" class="btn btn-gold" onclick="p2OpenResumeCustomizer()">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Tailor Resume
+                        </button>
+                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download Master PDF
                         </a>
                         <a href="#contact" class="btn btn-outline" onclick="p2ToggleRecruiterMode()">
                             <i class="fa-solid fa-paper-plane"></i> Contact / Hire Me
@@ -1296,6 +1302,53 @@
         </div>
     </div>
 
+    <!-- Resume Customizer Glassmorphism Modal -->
+    <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none;">
+        <div class="p2-cs-modal-overlay" onclick="p2CloseResumeCustomizer()"></div>
+        <div class="p2-cs-modal-content glass-panel" style="max-width: 920px; max-height: 90vh; overflow-y: auto;">
+            <button class="p2-cs-close-btn" onclick="p2CloseResumeCustomizer()" title="Close Customizer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="p2-cs-modal-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                <span class="p2-cs-badge"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> AI RESUME TAILORING ENGINE</span>
+                <h2 class="gradient-text" style="font-size: 1.8rem; margin-top: 0.4rem;">Customize Prashant's Resume</h2>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">Select a recruiter target role to instantly tailor skills, project order, and executive summary.</p>
+            </div>
+
+            <!-- Role Selector Tabs -->
+            <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <button type="button" class="btn btn-gold p2-role-tab active" data-role="aiml" onclick="p2SelectResumeRole('aiml')">
+                    <i class="fa-solid fa-brain"></i> AI / ML Engineer
+                </button>
+                <button type="button" class="btn btn-outline p2-role-tab" data-role="fullstack" onclick="p2SelectResumeRole('fullstack')">
+                    <i class="fa-solid fa-code"></i> Full-Stack Developer
+                </button>
+                <button type="button" class="btn btn-outline p2-role-tab" data-role="datascience" onclick="p2SelectResumeRole('datascience')">
+                    <i class="fa-solid fa-chart-line"></i> Data Scientist
+                </button>
+                <button type="button" class="btn btn-outline p2-role-tab" data-role="backend" onclick="p2SelectResumeRole('backend')">
+                    <i class="fa-solid fa-server"></i> Backend Systems
+                </button>
+            </div>
+
+            <!-- Live Custom Resume Preview Card -->
+            <div id="p2CustomResumePreview" class="p2-admin-card glass-panel" style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--accent-gold); padding: 1.5rem; margin-bottom: 1.5rem;">
+                <!-- Dynamically populated by p2RenderCustomResumePreview() -->
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
+                <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
+                    <i class="fa-solid fa-file-pdf"></i> Master PDF (Standard)
+                </a>
+                <button type="button" class="btn btn-gold" onclick="p2DownloadCustomizedResume()">
+                    <i class="fa-solid fa-download"></i> Download Tailored Resume PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1317,6 +1370,7 @@
 
     <!-- Data Layer & Feature JS Files -->
     <script src="data/portfolio-data.js"></script>
+    <script src="data/resume-customizer-data.js"></script>
     <script src="p2-script.js"></script>
     <script src="script.js"></script>
 
