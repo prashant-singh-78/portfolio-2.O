@@ -3567,7 +3567,7 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     color: #000;
 }
 
-/* --- Responsive Media Queries --- */
+/* --- Comprehensive Mobile Responsiveness Enhancements --- */
 @media (max-width: 1024px) {
     .p2-rec-banner-grid {
         grid-template-columns: 1fr;
@@ -3583,6 +3583,18 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
 }
 
 @media (max-width: 768px) {
+    .p2-cs-modal {
+        padding: 0.5rem !important;
+    }
+
+    .p2-cs-modal-content {
+        max-width: 100% !important;
+        max-height: 92vh !important;
+        padding: 1.1rem !important;
+        border-radius: 12px !important;
+        overflow-x: hidden !important;
+    }
+
     .p2-modal-overlay {
         padding: 1rem;
     }
@@ -3596,15 +3608,48 @@ body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
     .p2-dash-grid {
         grid-template-columns: 1fr;
     }
+
+    .p2-role-tab {
+        flex: 1 1 calc(50% - 0.4rem) !important;
+        font-size: 0.8rem !important;
+        padding: 0.5rem 0.6rem !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    #p2CustomResumePreview {
+        padding: 1rem !important;
+    }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
+    .p2-cs-modal-content h2 {
+        font-size: 1.4rem !important;
+    }
+
     .p2-rec-title {
-        font-size: 1.4rem;
+        font-size: 1.4rem !important;
     }
 
     .p2-cs-title {
-        font-size: 1.3rem;
+        font-size: 1.3rem !important;
+    }
+
+    .p2-role-tab {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+    }
+
+    .p2-pill {
+        font-size: 0.75rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    .p2-cs-modal-content button, 
+    .p2-cs-modal-content a.btn {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
     }
 }
 
