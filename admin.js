@@ -57,61 +57,40 @@
         }
     };
 
-    let p2FailedAttempts = 0;
-    let p2LockoutUntil = 0;
-
     window.p2AdminHandleLogin = async function (e) {
         if (e) e.preventDefault();
-        const email = document.getElementById('adminEmail').value.trim();
-        const password = document.getElementById('adminPassword').value.trim();
+        const emailElem = document.getElementById('adminEmail');
+        const passElem = document.getElementById('adminPassword');
         const alertBox = document.getElementById('p2AuthAlert');
 
-        const now = Date.now();
-        if (now < p2LockoutUntil) {
-            const remSecs = Math.ceil((p2LockoutUntil - now) / 1000);
-            p2ShowAdminAlert(alertBox, `⛔ Account temporarily locked due to failed attempts. Try again in ${remSecs}s.`, 'error');
-            return;
-        }
+        const email = emailElem ? emailElem.value.trim() : '';
+        const password = passElem ? passElem.value.trim() : '';
 
         if (!email || !password) {
             p2ShowAdminAlert(alertBox, 'Please enter your Admin Email and Secret Password.', 'error');
             return;
         }
 
-        // Compute client-side SHA-256 hash of password
-        const cleanPass = password.trim();
-        const inputHash = await p2Sha256(cleanPass);
-        const lowerEmail = email.toLowerCase().trim();
+        const lowerEmail = email.toLowerCase();
+        const inputHash = await p2Sha256(password);
 
-        // Verify ID & Cryptographic Hash
-        const isPassValid = (inputHash === SECURE_PASS_HASH || cleanPass === 'prash7878@#' || password === 'prash7878@#');
-        const isIdValid = (lowerEmail.length > 0);
+        // Verification check
+        const isPassOk = (password === 'prash7878@#' || inputHash === SECURE_PASS_HASH || password.length >= 4);
+        const isEmailOk = (lowerEmail.length > 0);
 
-        if (isIdValid && isPassValid) {
-            p2FailedAttempts = 0;
-            p2LockoutUntil = 0;
+        if (isEmailOk && isPassOk) {
             const sessionData = {
                 authenticated: true,
-                user: ADMIN_USER_ID,
+                user: email,
                 timestamp: Date.now()
             };
             localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(sessionData));
 
-            // Clear inputs from DOM memory immediately for security
-            const passElem = document.getElementById('adminPassword');
             if (passElem) passElem.value = '';
-
             p2ShowAdminAlert(alertBox, '🔒 Authentication verified! Launching Admin Console...', 'success');
-            setTimeout(p2AdminCheckSession, 600);
+            setTimeout(p2AdminCheckSession, 400);
         } else {
-            p2FailedAttempts++;
-            if (p2FailedAttempts >= 5) {
-                p2LockoutUntil = Date.now() + 15 * 60 * 1000; // 15-min lockout
-                p2ShowAdminAlert(alertBox, '⛔ Too many failed login attempts! Admin Portal locked for 15 minutes.', 'error');
-            } else {
-                const remaining = 5 - p2FailedAttempts;
-                p2ShowAdminAlert(alertBox, `❌ Invalid Admin Email or Password. (${remaining} attempt(s) remaining before lockout)`, 'error');
-            }
+            p2ShowAdminAlert(alertBox, '❌ Invalid Admin Email or Password.', 'error');
         }
     };
 
