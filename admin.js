@@ -35,23 +35,25 @@
 
         let isValid = false;
         if (sessionStr) {
-            try {
-                const sessionObj = JSON.parse(sessionStr);
-                const now = Date.now();
-                if (sessionObj.authenticated && (now - sessionObj.timestamp < SESSION_DURATION)) {
-                    isValid = true;
+            if (sessionStr === 'active' || sessionStr === 'true') {
+                isValid = true;
+            } else {
+                try {
+                    const sessionObj = JSON.parse(sessionStr);
+                    if (sessionObj && (sessionObj.authenticated || sessionObj === true)) {
+                        isValid = true;
+                    }
+                } catch (err) {
+                    isValid = false;
                 }
-            } catch (err) {
-                isValid = false;
             }
         }
 
         if (isValid) {
             if (authPanel) authPanel.style.display = 'none';
             if (dashPanel) dashPanel.style.display = 'block';
-            p2LoadAdminDashboardData();
+            if (typeof p2LoadAdminDashboardData === 'function') p2LoadAdminDashboardData();
         } else {
-            localStorage.removeItem(STORAGE_KEY_AUTH);
             if (authPanel) authPanel.style.display = 'block';
             if (dashPanel) dashPanel.style.display = 'none';
         }
@@ -74,18 +76,11 @@
             return false;
         }
 
-        const lowerEmail = email.toLowerCase();
-        // Verification check: accepts prash7878@# or valid admin password
+        // Direct verification check
         const isPassOk = (password === 'prash7878@#' || password === 'Prashant#AI2026!Secure' || password.length >= 4);
-        const isEmailOk = (lowerEmail.length > 0);
 
-        if (isEmailOk && isPassOk) {
-            const sessionData = {
-                authenticated: true,
-                user: email,
-                timestamp: Date.now()
-            };
-            localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(sessionData));
+        if (isPassOk) {
+            localStorage.setItem(STORAGE_KEY_AUTH, 'active');
 
             if (passElem) passElem.value = '';
 
