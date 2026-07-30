@@ -1476,13 +1476,126 @@
 
         window.p2OpenResumeCustomizer = function() {
             var modal = document.getElementById('p2ResumeCustomizerModal');
-            if (modal) modal.style.display = 'block';
-            if (typeof p2SelectResumeRole === 'function') p2SelectResumeRole('aiml');
+            if (modal) {
+                modal.style.display = 'block';
+                p2SelectResumeRole('aiml');
+            }
         };
 
         window.p2CloseResumeCustomizer = function() {
             var modal = document.getElementById('p2ResumeCustomizerModal');
             if (modal) modal.style.display = 'none';
+        };
+
+        var p2CurrentRole = 'aiml';
+
+        window.p2SelectResumeRole = function(roleId) {
+            p2CurrentRole = roleId || 'aiml';
+            var tabs = document.querySelectorAll('.p2-role-tab');
+            tabs.forEach(function(tab) {
+                if (tab.getAttribute('data-role') === p2CurrentRole) {
+                    tab.className = 'btn btn-gold p2-role-tab active';
+                } else {
+                    tab.className = 'btn btn-outline p2-role-tab';
+                }
+            });
+            p2RenderCustomResumePreview(p2CurrentRole);
+        };
+
+        function p2RenderCustomResumePreview(roleId) {
+            var container = document.getElementById('p2CustomResumePreview');
+            if (!container) return;
+
+            var roleProfiles = {
+                aiml: {
+                    title: "AI / Machine Learning Engineer",
+                    summary: "Passionate AI Engineer specializing in Computer Vision (YOLOv8), Deep Learning (PyTorch, TensorFlow), and NLP. Winner of 1st Rank in VGU National Project Exhibition for real-world AI diagnostic systems.",
+                    skills: ["Python", "PyTorch", "TensorFlow", "YOLOv8", "OpenCV", "Scikit-Learn", "Flask APIs", "Docker", "Model Deployment"],
+                    highlights: [
+                        "Developed high-precision skin lesion diagnostic CNN model using PyTorch & OpenCV.",
+                        "Implemented real-time YOLOv8 distraction detection for StudyShield focus monitor.",
+                        "Trained custom NLP models for automated interview question synthesis in MockMate."
+                    ]
+                },
+                fullstack: {
+                    title: "Full-Stack Software Developer",
+                    summary: "Full-Stack Web Developer experienced in building high-performance web applications using modern JavaScript, HTML5/CSS3, Python Flask, Node.js, and SQL/NoSQL databases. Winner of Hackstorm 24-Hr Hackathon.",
+                    skills: ["JavaScript (ES6+)", "HTML5 & CSS3", "Python / Flask", "REST APIs", "PostgreSQL", "React", "Node.js", "Git & GitHub", "Vercel / Render"],
+                    highlights: [
+                        "Architected NovaERP multi-tenant SaaS with role-based access control (RBAC).",
+                        "Built responsive glassmorphism UI design systems with sub-50ms render performance.",
+                        "Integrated secure JWT authentication and RESTful API endpoints for cross-platform apps."
+                    ]
+                },
+                datascience: {
+                    title: "Data Scientist & Analytics Engineer",
+                    summary: "Data Scientist proficient in exploratory data analysis, feature engineering, predictive modeling, and data visualization. Skilled in managing large datasets and deploying reproducible data pipelines.",
+                    skills: ["Python", "Pandas & NumPy", "Scikit-Learn", "Matplotlib & Seaborn", "SQL", "Feature Engineering", "Data Cleaning", "Jupyter", "ETL Pipelines"],
+                    highlights: [
+                        "Created Deta Hub centralized dataset management platform for fast dataset exploration.",
+                        "Preprocessed & augmented 10,000+ medical images for deep learning training pipelines.",
+                        "Built automated model performance evaluation rubrics with ROC/AUC and confusion matrices."
+                    ]
+                },
+                backend: {
+                    title: "Backend & Systems Engineer",
+                    summary: "Backend Software Engineer focused on designing scalable REST APIs, database schemas, microservice architectures, and secure authentication pipelines with cloud deployment.",
+                    skills: ["Python / Flask", "PostgreSQL & SQLite", "RESTful API Design", "System Architecture", "Docker", "Authentication (JWT / OAuth)", "Linux CLI", "Git Workflow"],
+                    highlights: [
+                        "Engineered multi-tenant database schemas with PostgreSQL Row Level Security (RLS).",
+                        "Optimized API query execution speeds by 40% using indexed query strategies.",
+                        "Configured continuous integration & deployment pipelines on Vercel and Render."
+                    ]
+                }
+            };
+
+            var prof = roleProfiles[roleId] || roleProfiles['aiml'];
+            var skillsHTML = prof.skills.map(function(s) {
+                return '<span class="p2-pill" style="border-color:var(--accent-gold); color:var(--accent-gold); margin:2px;">' + s + '</span>';
+            }).join(' ');
+
+            var highlightsHTML = prof.highlights.map(function(h) {
+                return '<li><i class="fa-solid fa-check text-gold" style="margin-right:0.5rem;"></i>' + h + '</li>';
+            }).join('');
+
+            container.innerHTML = 
+                '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; border-bottom:1px dashed rgba(255,255,255,0.15); padding-bottom:1rem;">' +
+                    '<div>' +
+                        '<h3 class="gradient-text" style="font-size:1.4rem; margin-bottom:0.2rem;">Prashant Singh</h3>' +
+                        '<span style="font-family:var(--font-mono); font-size:0.9rem; color:var(--accent-gold);">' + prof.title + '</span>' +
+                    '</div>' +
+                    '<div style="font-size:0.82rem; color:var(--text-muted); font-family:var(--font-mono);">' +
+                        '<div><i class="fa-solid fa-envelope"></i> prashantbachhamadi@gmail.com</div>' +
+                        '<div><i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan, India</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="margin-bottom:1.2rem;">' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-gold);"><i class="fa-solid fa-user text-gold"></i> Tailored Executive Summary</h4>' +
+                    '<p style="font-size:0.88rem; color:var(--text-main); line-height:1.6;">' + prof.summary + '</p>' +
+                '</div>' +
+                '<div style="margin-bottom:1.2rem;">' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.6rem; color:var(--accent-gold);"><i class="fa-solid fa-layer-group text-gold"></i> Targeted Core Competencies</h4>' +
+                    '<div style="display:flex; flex-wrap:wrap; gap:0.4rem;">' + skillsHTML + '</div>' +
+                '</div>' +
+                '<div style="margin-bottom:1.2rem;">' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; color:var(--accent-gold);"><i class="fa-solid fa-star text-gold"></i> Role-Specific Engineering Accomplishments</h4>' +
+                    '<ul style="list-style:none; padding-left:0; font-size:0.88rem; display:flex; flex-direction:column; gap:0.5rem;">' + highlightsHTML + '</ul>' +
+                '</div>' +
+                '<div>' +
+                    '<h4 style="font-size:0.95rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.4rem; color:var(--accent-gold);"><i class="fa-solid fa-graduation-cap text-gold"></i> Education & Achievements</h4>' +
+                    '<p style="font-size:0.85rem; color:var(--text-muted); margin:0;">B.Tech CSE (AI & ML Specialization) — VGU Jaipur (2022 - 2026) | 🏆 1st Rank Winner VGU National Exhibition 2025</p>' +
+                '</div>';
+        }
+
+        window.p2DownloadCustomizedResume = function() {
+            var printWin = window.open('', '_blank');
+            if (!printWin) {
+                alert('Please allow popups to download custom resume.');
+                return;
+            }
+            var previewContent = document.getElementById('p2CustomResumePreview').innerHTML;
+            printWin.document.write('<!DOCTYPE html><html><head><title>Prashant_Singh_Resume</title><style>body{font-family:sans-serif;padding:2rem;color:#1e293b;line-height:1.6;}.p2-pill{display:inline-block;padding:3px 8px;border:1px solid #0284c7;border-radius:4px;font-size:0.8rem;margin:2px;}</style></head><body>' + previewContent + '<script>window.onload=function(){window.print();};<\/script></body></html>');
+            printWin.document.close();
         };
 
         function toggleAIConsole() {
