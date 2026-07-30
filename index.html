@@ -899,7 +899,191 @@
                 </div>
 
                 <div class="p2-challenges-grid">
-                    <!-- Dynamically populated from data/portfolio-data.js by p2-script.js -->
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">DEPLOYMENT & NETWORK</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Connecting Vercel Frontend with Render Backend (CORS & Cold Starts)</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: MockMate / MediCure</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>Cross-Origin Resource Sharing (CORS) errors blocked frontend fetch calls, and Render free-tier cold starts caused 504 gateway timeouts on initial requests.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Inspected network tab headers, verified preflight OPTIONS responses, and benchmarked API latency during cold start warm-up periods.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Configured explicit `CORSMiddleware` origins in FastAPI allowing Vercel domains, and implemented a frontend retry fallback with a silent wake-up ping on initial page load.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Handling asynchronous infrastructure states gracefully improves UX drastically compared to displaying generic fetch failure errors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">SECURITY & API</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Resolving Complex CORS & Origin Header Mismatches</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: StudyShield API</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>Browser extension requests sent from Chrome extension origins (`chrome-extension://...`) were rejected by strict server security headers.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Analyzed request origin headers in browser developer tools and cross-referenced server middleware logs.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Added dynamic regex matching for extension IDs in the FastAPI wildcard CORS policy.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Browser extension networking requires treating extension origins as distinct non-http clients.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">MACHINE LEARNING</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Deploying TensorFlow Models on Serverless & Constrained Hosts</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: Skin Disease Predictor</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>Standard TensorFlow Python packages exceeded memory and storage limits on cloud host instances.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Profiled memory usage during model import and monitored RAM spikes during soft-max inference passes.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Converted full TensorFlow Keras models to TensorFlow Lite (`.tflite`) format and used `tflite_runtime` for lightweight inference.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Model optimization and quantization are mandatory steps for production deployment on edge servers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">GIT & STORAGE</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Managing Large ML Model Binaries & Git LFS Limits</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: AI Models & Datasets</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>Git pushes were rejected due to GitHub's strict 100MB file size limit for model weight files.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Traced commit history with `git-sizer` to pinpoint large uncompressed binary objects.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Configured Git Large File Storage (`git-lfs`) for `.h5` and `.pkl` files and moved binary model distribution to remote cloud storage buckets.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Source code repositories should contain code only; binary model artifacts belong in specialized object storage.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">AUTHENTICATION</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Fixing Auth JWT Expiration & Refresh Token Loops</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: NovaERP SaaS</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>Expired JWT tokens caused infinite redirect loops between dashboard routes and login pages.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Traced Next.js/Flask middleware execution order and checked local storage token decryption timers.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Implemented silent token validation in middleware with automatic session cleanup and clear user redirection upon token expiry.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Robust auth middleware must handle expired, malformed, and missing tokens idempotently.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p2-challenge-card glass-panel" onclick="p2ToggleChallenge(this)">
+                        <div class="p2-challenge-header">
+                            <div class="p2-ch-title-wrap">
+                                <span class="p2-ch-badge">DEVOPS & SECURITY</span>
+                                <h3><i class="fa-solid fa-code-commit text-gold"></i> Managing Environment Variables Securely Across Environments</h3>
+                                <span class="p2-ch-project"><i class="fa-solid fa-diagram-project"></i> Project: Full-Stack Portfolio Projects</span>
+                            </div>
+                            <button type="button" class="p2-ch-toggle-btn" aria-label="Expand Challenge Details">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="p2-challenge-body">
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-crimson"><i class="fa-solid fa-circle-exclamation"></i> Issue / Problem:</strong>
+                                <p>API keys were at risk of leak when deploying static frontend apps that interact with backend services.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-gold"><i class="fa-solid fa-bug"></i> Debugging Process:</strong>
+                                <p>Audited build bundle outputs for exposed secret strings using automated scanning tools.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong class="text-green"><i class="fa-solid fa-circle-check"></i> Final Solution:</strong>
+                                <p>Decoupled sensitive operational credentials into server-side environment variables and proxy endpoints.</p>
+                            </div>
+                            <div class="p2-ch-detail-item">
+                                <strong><i class="fa-solid fa-lightbulb text-gold"></i> Key Takeaway & Learning:</strong>
+                                <p>Client-side code should never contain private API keys or secret credentials.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2102,5 +2286,7 @@
             }
         }
     </script>
+    <script src="data/portfolio-data.js"></script>
+    <script src="p2-script.js"></script>
 </body>
 </html>
