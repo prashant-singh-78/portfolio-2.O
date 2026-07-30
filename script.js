@@ -586,25 +586,11 @@ function initHUDToggle() {
 }
 
 /* --------------------------------------------------------------------------
-   5. PHOTO UPLOAD PREVIEW UTILITY
+   5. PHOTO UPLOAD PREVIEW UTILITY (Disabled in Public View - Feature 8)
    -------------------------------------------------------------------------- */
 function initPhotoUpload() {
-    const input = document.getElementById('photoUploadInput');
-    const profileImg = document.getElementById('userProfileImg');
-
-    if (input && profileImg) {
-        input.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    profileImg.src = event.target.result;
-                    showToast("Profile picture updated!");
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
+    // Public photo upload disabled per Feature 8 security requirement.
+    // Profile photo management is handled in the secure Admin Dashboard.
 }
 
 /* --------------------------------------------------------------------------

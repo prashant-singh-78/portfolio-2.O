@@ -51,6 +51,10 @@
             </nav>
 
             <div class="nav-actions">
+                <button class="p2-recruiter-toggle-btn" id="p2NavRecruiterBtn" onclick="p2ToggleRecruiterMode()" title="Toggle Recruiter Mode Briefing">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span id="p2NavRecruiterText">Recruiter Mode</span>
+                </button>
                 <button class="hud-toggle-btn" id="hudToggleBtn" title="Toggle Sci-Fi HUD Mode">
                     <i class="fa-solid fa-microchip"></i>
                     <span class="hud-btn-text">HUD Mode</span>
@@ -87,6 +91,9 @@
                         <a href="#projects" class="btn btn-gold">
                             <i class="fa-solid fa-compass"></i> View Projects
                         </a>
+                        <button type="button" class="btn btn-outline p2-hero-recruiter-btn" onclick="p2ToggleRecruiterMode()">
+                            <i class="fa-solid fa-user-tie"></i> Recruiter Mode
+                        </button>
                         <a href="assets/resume.pdf" target="_blank" download class="btn btn-outline">
                             <i class="fa-solid fa-file-arrow-down"></i> Download Resume
                         </a>
@@ -171,13 +178,6 @@
                                 <span class="hud-label">DEGREE</span>
                                 <span class="hud-val">B.TECH CS (AI)</span>
                             </div>
-                            
-                            <!-- Interactive Photo Replace Overlay -->
-                            <label for="photoUploadInput" class="photo-upload-overlay" title="Click to upload your custom photo">
-                                <i class="fa-solid fa-camera"></i>
-                                <span>Change Photo</span>
-                            </label>
-                            <input type="file" id="photoUploadInput" accept="image/*" style="display: none;">
                         </div>
                     </div>
 
@@ -809,6 +809,21 @@
             </div>
         </section>
 
+        <!-- Engineering Challenges & Solutions Section (Feature 5) -->
+        <section class="p2-challenges-section" id="challenges">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">// 04.1 DEEP TECH RESOLUTIONS</span>
+                    <h2 class="section-title">Engineering Challenges & Solutions</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="p2-challenges-grid">
+                    <!-- Dynamically populated from data/portfolio-data.js by p2-script.js -->
+                </div>
+            </div>
+        </section>
+
         <!-- Certificates & Achievements Section -->
         <section class="certificates-section" id="certificates">
             <div class="section-container">
@@ -1223,7 +1238,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript File -->
+    <!-- Data Layer & Feature JS Files -->
+    <script src="data/portfolio-data.js"></script>
+    <script src="p2-script.js"></script>
     <script src="script.js"></script>
 
     <!-- Inline Failsafe Modal & Command Engine Script -->

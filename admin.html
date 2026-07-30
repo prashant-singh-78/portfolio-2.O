@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Management Console | Admin Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Supabase JS Client CDN (Optional BaaS integration) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        body {
+            padding-top: 5rem;
+            min-height: 100vh;
+        }
+
+        .p2-admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .p2-admin-card {
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .p2-admin-auth-box {
+            max-width: 450px;
+            margin: 4rem auto;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .p2-admin-form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .p2-admin-form-group label {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--accent-gold);
+        }
+
+        .p2-admin-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+        }
+
+        .p2-admin-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold-glow);
+        }
+
+        .p2-admin-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .p2-photo-preview-box {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold);
+            margin: 1rem 0;
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+        }
+
+        .p2-photo-preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .p2-status-alert {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .p2-status-alert.success {
+            background: rgba(0, 240, 144, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .p2-status-alert.error {
+            background: rgba(255, 42, 95, 0.15);
+            border: 1px solid var(--accent-crimson);
+            color: var(--accent-crimson);
+        }
+
+        .p2-admin-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body class="theme-neural">
+    <!-- Main Content -->
+    <div class="p2-admin-container">
+        <!-- Auth Box (Shown when logged out) -->
+        <div id="p2AdminAuthPanel" class="p2-admin-auth-box glass-panel">
+            <h2 class="gradient-text" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Console Sign In</h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">Secure Administrator Portal Access</p>
+            
+            <div id="p2AuthAlert" class="p2-status-alert"></div>
+
+            <form onsubmit="p2AdminHandleLogin(event)">
+                <div class="p2-admin-form-group">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" class="p2-admin-input" required placeholder="admin@prashant08.dev">
+                </div>
+                <div class="p2-admin-form-group">
+                    <label for="adminPassword">Admin Password</label>
+                    <input type="password" id="adminPassword" class="p2-admin-input" required placeholder="••••••••••••">
+                </div>
+                <button type="submit" id="p2LoginBtn" class="btn btn-gold btn-block" style="margin-top: 1rem;">
+                    <i class="fa-solid fa-lock"></i> Authenticate Dashboard
+                </button>
+            </form>
+        </div>
+
+        <!-- Admin Control Panel (Shown when authenticated) -->
+        <div id="p2AdminDashboardPanel" style="display: none;">
+            <div class="p2-admin-nav-header">
+                <div>
+                    <span class="p2-cs-badge"><i class="fa-solid fa-user-shield"></i> AUTHENTICATED ADMIN SESSION</span>
+                    <h1 class="section-title" style="font-size: 2rem; margin-top: 0.3rem;">Portfolio Management Console</h1>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="index.html" class="btn btn-outline" target="_blank">
+                        <i class="fa-solid fa-eye"></i> View Public Site
+                    </a>
+                    <button class="btn btn-outline" style="border-color: var(--accent-crimson); color: var(--accent-crimson);" onclick="p2AdminLogout()">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <div id="p2DashboardAlert" class="p2-status-alert"></div>
+
+            <!-- Feature 8: Admin Profile Photo Management -->
+            <div class="p2-admin-card glass-panel">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;"><i class="fa-solid fa-camera text-gold"></i> Profile Photo Management</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">Upload a new profile picture (JPG, PNG, or WebP up to 2MB). Changes update the live portfolio instantly.</p>
+                
+                <div class="p2-admin-grid-2col" style="align-items: center;">
+                    <div>
+                        <div class="p2-admin-form-group">
+                            <label for="p2AdminPhotoInput">Select Image File</label>
+                            <input type="file" id="p2AdminPhotoInput" accept="image/jpeg,image/png,image/webp" class="p2-admin-input" onchange="p2PreviewAdminPhoto(this)">
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button type="button" class="btn btn-gold" onclick="p2UploadAdminPhoto()">
+                                <i class="fa-solid fa-upload"></i> Upload & Save Photo
+                            </button>
+                            <button type="button" class="btn btn-outline" onclick="p2RestoreDefaultPhoto()">
+                                <i class="fa-solid fa-rotate-left"></i> Restore Default Photo
+                            </button>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Current Photo Preview</span>
+                        <div class="p2-photo-preview-box">
+                            <img id="p2AdminPhotoPreview" src="assets/profile.jpg" alt="Profile Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recruiter Mode & Availability Editor -->
+            <div class="p2-admin-card glass-panel">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;"><i class="fa-solid fa-user-tie text-gold"></i> Recruiter Mode & Availability Settings</h3>
+                <div class="p2-admin-form-group">
+                    <label for="p2AdminRecIntro">Executive Introduction Brief</label>
+                    <textarea id="p2AdminRecIntro" rows="3" class="p2-admin-input"></textarea>
+                </div>
+                <div class="p2-admin-form-group">
+                    <label for="p2AdminAvailability">Availability Status Message</label>
+                    <input type="text" id="p2AdminAvailability" class="p2-admin-input">
+                </div>
+                <button type="button" class="btn btn-gold" onclick="p2SaveRecruiterConfig()">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Recruiter Settings
+                </button>
+            </div>
+
+            <!-- Case Study Links & Demo Toggles -->
+            <div class="p2-admin-card glass-panel">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;"><i class="fa-solid fa-sliders text-gold"></i> Case Study Links & Demo Controls</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">Manage live links, GitHub URLs, and mini demo statuses for targeted case studies.</p>
+                <div id="p2AdminCaseStudiesList" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Layer & Admin Scripts -->
+    <script src="data/portfolio-data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -2850,3 +2850,756 @@ html, body {
         font-size: 16px !important;
     }
 }
+
+/* ==========================================================================
+   PORTFOLIO PRO UPGRADES DESIGN SYSTEM (p2- PREFIXED STYLES)
+   ========================================================================== */
+
+/* --- Recruiter Mode Toggle Buttons --- */
+.p2-recruiter-toggle-btn {
+    background: rgba(255, 183, 3, 0.12);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+}
+
+.p2-recruiter-toggle-btn:hover {
+    background: var(--accent-gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-gold-glow);
+}
+
+body.p2-recruiter-mode-active .p2-recruiter-toggle-btn {
+    background: var(--accent-crimson);
+    border-color: var(--accent-crimson);
+    color: #fff;
+}
+
+/* --- Recruiter Hero Briefing Banner --- */
+.p2-recruiter-banner {
+    max-width: 1350px;
+    margin: 2rem auto 1.5rem auto;
+    padding: 2rem;
+    border: 1px solid var(--accent-gold);
+    box-shadow: 0 0 25px rgba(255, 183, 3, 0.2);
+    animation: p2FadeDown 0.4s ease-out;
+}
+
+@keyframes p2FadeDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.p2-rec-banner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.8rem;
+}
+
+.p2-rec-badge {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.p2-btn-exit-recruiter {
+    background: transparent;
+    border: 1px solid var(--accent-crimson);
+    color: var(--accent-crimson);
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.p2-btn-exit-recruiter:hover {
+    background: var(--accent-crimson);
+    color: #fff;
+}
+
+.p2-rec-banner-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+}
+
+.p2-rec-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+}
+
+.p2-rec-intro {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.p2-rec-status {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.p2-rec-skills-wrapper h4,
+.p2-rec-col-side h4 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.p2-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.p2-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+}
+
+.p2-rec-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.p2-rec-achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.p2-rec-achieve-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-gold);
+}
+
+.p2-rec-achieve-item strong {
+    font-size: 0.88rem;
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.p2-rec-achieve-item p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* --- Case Study Modal --- */
+.p2-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.p2-modal-content {
+    width: 100%;
+    max-width: 1100px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    padding: 0;
+}
+
+.p2-cs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(7, 6, 9, 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.p2-cs-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    background: rgba(255, 183, 3, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.p2-cs-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-top: 0.3rem;
+}
+
+.p2-cs-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.p2-cs-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition-fast);
+}
+
+.p2-cs-close-btn:hover {
+    color: var(--accent-crimson);
+}
+
+.p2-cs-body-scroll {
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.p2-cs-section {
+    padding: 1.5rem;
+}
+
+.p2-cs-section h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.p2-cs-lead {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.p2-cs-subtext {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.p2-cs-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    font-size: 0.88rem;
+}
+
+.p2-cs-meta-grid strong {
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.p2-cs-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.p2-cs-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.p2-cs-feature-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.4;
+}
+
+.p2-cs-stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+}
+
+.p2-cs-stack-list strong {
+    color: var(--accent-gold);
+    width: 110px;
+    display: inline-block;
+}
+
+.p2-cs-challenge-box {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    border-left: 3px solid var(--accent-crimson);
+}
+
+.p2-cs-challenge-box p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+}
+
+.p2-cs-result-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background: rgba(0, 240, 144, 0.08);
+    border: 1px solid var(--accent-green);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.p2-cs-footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Interactive Architecture Diagrams --- */
+.p2-arch-flow-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.p2-arch-nodes-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.p2-arch-node-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p2-arch-node {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: var(--transition-fast);
+}
+
+.p2-arch-node:hover,
+.p2-arch-node.active {
+    border-color: var(--accent-gold);
+    background: rgba(255, 183, 3, 0.1);
+    box-shadow: 0 0 15px rgba(255, 183, 3, 0.2);
+}
+
+.p2-arch-node .node-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.p2-arch-arrow {
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+    margin: 0.2rem 0;
+}
+
+.p2-arch-detail-panel {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--accent-gold);
+    padding: 1.2rem;
+    border-radius: 12px;
+}
+
+.p2-arch-detail-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.p2-arch-detail-panel h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.p2-arch-detail-panel p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --- Mini Project Demos --- */
+.p2-demo-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    border-radius: 12px;
+}
+
+.p2-demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.p2-demo-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    background: rgba(0, 240, 144, 0.15);
+    color: var(--accent-green);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.p2-demo-timer-box {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.p2-timer-display {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+}
+
+.p2-demo-blocklist {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.p2-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+}
+
+.p2-demo-log {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-gold);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+}
+
+.p2-demo-symptom-chips,
+.p2-demo-img-selector,
+.p2-demo-role-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.p2-chip-btn,
+.p2-img-btn,
+.p2-role-tab {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.p2-chip-btn.active,
+.p2-img-btn.active,
+.p2-role-tab.active {
+    border-color: var(--accent-gold);
+    background: rgba(255, 183, 3, 0.15);
+    color: var(--accent-gold);
+}
+
+.p2-disclaimer-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    background: rgba(255, 42, 95, 0.1);
+    border: 1px solid var(--accent-crimson);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+}
+
+.p2-dash-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+}
+
+.p2-dash-card {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.p2-dash-card span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+    font-family: var(--font-mono);
+}
+
+.p2-dash-card strong {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+}
+
+.p2-demo-deta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.p2-deta-item {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.p2-deta-item span {
+    color: var(--accent-gold);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+/* --- Engineering Challenges Section (Feature 5) --- */
+.p2-challenges-section {
+    padding: 5rem 0;
+}
+
+.p2-challenges-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.p2-challenge-card {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.p2-challenge-card:hover {
+    border-color: rgba(255, 183, 3, 0.4);
+}
+
+.p2-challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p2-ch-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.p2-ch-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.5px;
+}
+
+.p2-challenge-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.p2-ch-project {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.p2-ch-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.p2-challenge-card.expanded .p2-ch-toggle-btn {
+    transform: rotate(180deg);
+}
+
+.p2-challenge-body {
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    animation: p2FadeDown 0.3s ease;
+}
+
+.p2-challenge-card.expanded .p2-challenge-body {
+    display: flex;
+}
+
+.p2-ch-detail-item strong {
+    font-size: 0.88rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.p2-ch-detail-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --- Case Study Button on Project Cards --- */
+.btn-case-study.p2-btn-cs {
+    background: rgba(255, 183, 3, 0.15);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-case-study.p2-btn-cs:hover {
+    background: var(--accent-gold);
+    color: #000;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 1024px) {
+    .p2-rec-banner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .p2-cs-grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .p2-arch-flow-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .p2-modal-overlay {
+        padding: 1rem;
+    }
+
+    .p2-cs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .p2-dash-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 375px) {
+    .p2-rec-title {
+        font-size: 1.4rem;
+    }
+
+    .p2-cs-title {
+        font-size: 1.3rem;
+    }
+}
+
