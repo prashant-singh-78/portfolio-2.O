@@ -1304,10 +1304,10 @@
     </div>
 
     <!-- Recruiter Mode Executive Briefing Glassmorphism Modal -->
-    <div id="p2RecruiterModal" class="p2-cs-modal" style="display: none;">
-        <div class="p2-cs-modal-overlay" onclick="p2ToggleRecruiterMode()"></div>
-        <div class="p2-cs-modal-content glass-panel" style="max-width: 900px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow);">
-            <button class="p2-cs-close-btn" onclick="p2ToggleRecruiterMode()" title="Exit Recruiter Mode">
+    <div id="p2RecruiterModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
+        <div class="p2-cs-modal-overlay" onclick="p2ToggleRecruiterMode()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow); padding: 1.8rem;">
+            <button class="p2-cs-close-btn" onclick="p2ToggleRecruiterMode()" title="Exit Recruiter Mode" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
@@ -1366,10 +1366,10 @@
     </div>
 
     <!-- Resume Customizer Glassmorphism Modal -->
-    <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none;">
-        <div class="p2-cs-modal-overlay" onclick="p2CloseResumeCustomizer()"></div>
-        <div class="p2-cs-modal-content glass-panel" style="max-width: 920px; max-height: 90vh; overflow-y: auto;">
-            <button class="p2-cs-close-btn" onclick="p2CloseResumeCustomizer()" title="Close Customizer">
+    <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 999999; align-items: center; justify-content: center; padding: 1.5rem;">
+        <div class="p2-cs-modal-overlay" onclick="p2CloseResumeCustomizer()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <div class="p2-cs-modal-content glass-panel" style="position: relative; z-index: 10; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; padding: 1.8rem; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow);">
+            <button class="p2-cs-close-btn" onclick="p2CloseResumeCustomizer()" title="Close Customizer" style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
@@ -1450,7 +1450,7 @@
 
             var isHidden = (modal.style.display === 'none' || !modal.style.display);
             if (isHidden) {
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
                 if (banner) banner.style.display = 'block';
                 body.classList.add('p2-recruiter-mode-active');
                 if (navBtnText) navBtnText.textContent = 'Exit Recruiter Mode';
@@ -1477,7 +1477,7 @@
         window.p2OpenResumeCustomizer = function() {
             var modal = document.getElementById('p2ResumeCustomizerModal');
             if (modal) {
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
                 p2SelectResumeRole('aiml');
             }
         };
