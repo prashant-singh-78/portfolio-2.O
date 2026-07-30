@@ -1291,6 +1291,7 @@
             <button class="chip-btn" onclick="execAICommand('skills')">skills</button>
             <button class="chip-btn" onclick="execAICommand('projects')">projects</button>
             <button class="chip-btn" onclick="execAICommand('resume')">resume</button>
+            <button class="chip-btn" onclick="execAICommand('tailor')">tailor</button>
             <button class="chip-btn" onclick="execAICommand('contact')">contact</button>
             <button class="chip-btn" onclick="execAICommand('about')">about</button>
             <button class="chip-btn" onclick="execAICommand('clear')">clear</button>
@@ -1563,6 +1564,12 @@
                 case 'admin':
                     respHTML = '<p class="ai-resp-msg">🔒 Redirecting to Admin Management Portal...</p>';
                     window.location.href = 'admin.html';
+                    break;
+
+                case 'tailor':
+                case 'customizer':
+                    respHTML = '<p class="ai-resp-msg">✨ Launching AI Domain-Wise Resume Tailoring Engine...</p>';
+                    if (typeof p2OpenResumeCustomizer === 'function') p2OpenResumeCustomizer();
                     break;
 
                 case 'skills':
