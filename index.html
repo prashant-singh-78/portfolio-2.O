@@ -1230,6 +1230,9 @@
                 <p>&copy; 2026 Prashant. All rights reserved. Crafted with precision & neural aesthetics.</p>
             </div>
             <div class="footer-right">
+                <a href="admin.html" class="p2-footer-admin-link" style="color:var(--text-dim); font-size:0.75rem; text-decoration:none; margin-right:1rem; font-family:var(--font-mono); transition:color 0.2s;" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-dim)'">
+                    <i class="fa-solid fa-lock"></i> Admin Portal
+                </a>
                 <div class="live-clock" id="liveClock">UTC 00:00:00</div>
                 <a href="#hero" class="back-to-top" title="Back to top">
                     <i class="fa-solid fa-arrow-up"></i>
@@ -1317,7 +1320,13 @@
                                '<p class="sys-msg">• <span class="cmd-highlight">resume</span> : Download Prashant\'s official PDF resume</p>' +
                                '<p class="sys-msg">• <span class="cmd-highlight">contact</span> : Get email, phone, location & socials</p>' +
                                '<p class="sys-msg">• <span class="cmd-highlight">about</span> : Brief summary of academic background</p>' +
+                               '<p class="sys-msg">• <span class="cmd-highlight">admin</span> : Launch secure Admin Console Portal</p>' +
                                '<p class="sys-msg">• <span class="cmd-highlight">clear</span> : Clear console logs</p>';
+                    break;
+
+                case 'admin':
+                    respHTML = '<p class="ai-resp-msg">🔒 Redirecting to Admin Management Portal...</p>';
+                    window.location.href = 'admin.html';
                     break;
 
                 case 'skills':
