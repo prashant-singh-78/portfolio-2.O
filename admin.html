@@ -138,7 +138,7 @@
             
             <div id="p2AuthAlert" class="p2-status-alert"></div>
 
-            <form onsubmit="p2AdminHandleLogin(event)">
+            <form onsubmit="p2AdminHandleLogin(event); return false;">
                 <div class="p2-admin-form-group">
                     <label for="adminEmail">Admin Email / ID</label>
                     <input type="text" id="adminEmail" class="p2-admin-input" required placeholder="example@gmail.com" autocomplete="off">
@@ -147,7 +147,7 @@
                     <label for="adminPassword">Admin Password</label>
                     <input type="password" id="adminPassword" class="p2-admin-input" required placeholder="••••••••••••" autocomplete="new-password">
                 </div>
-                <button type="submit" id="p2LoginBtn" class="btn btn-gold btn-block" style="margin-top: 1rem;">
+                <button type="button" onclick="p2AdminHandleLogin(event)" id="p2LoginBtn" class="btn btn-gold btn-block" style="margin-top: 1rem;">
                     <i class="fa-solid fa-lock"></i> Authenticate Dashboard
                 </button>
             </form>
