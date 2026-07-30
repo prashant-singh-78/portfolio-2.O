@@ -1302,6 +1302,68 @@
         </div>
     </div>
 
+    <!-- Recruiter Mode Executive Briefing Glassmorphism Modal -->
+    <div id="p2RecruiterModal" class="p2-cs-modal" style="display: none;">
+        <div class="p2-cs-modal-overlay" onclick="p2ToggleRecruiterMode()"></div>
+        <div class="p2-cs-modal-content glass-panel" style="max-width: 900px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--accent-gold); box-shadow: 0 0 35px var(--accent-gold-glow);">
+            <button class="p2-cs-close-btn" onclick="p2ToggleRecruiterMode()" title="Exit Recruiter Mode">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="p2-rec-banner-header">
+                <div class="p2-rec-badge">
+                    <span class="pulse-dot"></span> RECRUITER SUMMARY BRIEFING MODE
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green);"><i class="fa-solid fa-circle-check"></i> Available for Full-Time Roles</span>
+            </div>
+
+            <div class="p2-rec-banner-grid">
+                <div class="p2-rec-col-main">
+                    <h2 class="p2-rec-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Executive Candidate Briefing</h2>
+                    <p class="p2-rec-intro">AI Engineer & Full-Stack Developer specializing in Machine Learning, Computer Vision, and high-impact web applications. Proven track record winning national project exhibitions and hackathons with production-ready AI solutions.</p>
+
+                    <div class="p2-rec-skills-wrapper" style="margin-top: 1rem;">
+                        <h4 style="font-family: var(--font-heading); color: var(--accent-gold); margin-bottom: 0.5rem;">Core Skill Highlights</h4>
+                        <div class="p2-pills-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                            <span class="p2-pill">Python & Flask</span>
+                            <span class="p2-pill">TensorFlow & PyTorch</span>
+                            <span class="p2-pill">YOLOv8 Computer Vision</span>
+                            <span class="p2-pill">Scikit-learn & ML Pipelines</span>
+                            <span class="p2-pill">React & Next.js</span>
+                            <span class="p2-pill">SQL & Database Design</span>
+                            <span class="p2-pill">Git & Linux CLI</span>
+                            <span class="p2-pill">REST APIs & Cloud Deployment</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem;">
+                        <h4 style="font-family: var(--font-heading); color: var(--accent-gold); margin-bottom: 0.5rem;">Top Featured Projects (Highlighted Below)</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.88rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>StudyShield</strong> (AI Focus Monitor)</li>
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>MockMate</strong> (AI Interview Prep)</li>
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>MediCure</strong> (Healthcare Assistant)</li>
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>NovaERP</strong> (Multi-Tenant SaaS)</li>
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>Deta Hub</strong> (Dataset Platform)</li>
+                            <li><i class="fa-solid fa-star text-gold"></i> <strong>Skin Disease Predictor</strong> (CNN ML)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p2-rec-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="assets/resume.pdf" target="_blank" download class="btn btn-gold">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline" onclick="p2ToggleRecruiterMode()">
+                            <i class="fa-solid fa-paper-plane"></i> Contact / Hire Me
+                        </a>
+                        <button type="button" class="btn btn-outline" onclick="p2ToggleRecruiterMode()">
+                            <i class="fa-solid fa-xmark"></i> Exit Recruiter Mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Resume Customizer Glassmorphism Modal -->
     <div id="p2ResumeCustomizerModal" class="p2-cs-modal" style="display: none;">
         <div class="p2-cs-modal-overlay" onclick="p2CloseResumeCustomizer()"></div>

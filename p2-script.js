@@ -42,13 +42,14 @@
         } else {
             isRecruiterModeActive = false;
         }
-        p2ApplyRecruiterModeState();
+        p2ApplyRecruiterModeState(false);
     }
 
-    function p2ApplyRecruiterModeState() {
+    function p2ApplyRecruiterModeState(showToast = true) {
         const body = document.body;
         const navBtnText = document.getElementById('p2NavRecruiterText');
         let heroContainer = document.getElementById('p2RecruiterHeroBanner');
+        const recruiterModal = document.getElementById('p2RecruiterModal');
 
         if (!heroContainer) {
             p2RenderRecruiterHeroBanner();
@@ -61,7 +62,9 @@
             
             if (heroContainer) {
                 heroContainer.style.display = 'block';
-                heroContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            if (recruiterModal) {
+                recruiterModal.style.display = 'block';
             }
 
             // Highlight top recruiter project cards
@@ -73,19 +76,26 @@
                 }
             });
 
-            p2ShowToastNotification('<i class="fa-solid fa-user-tie"></i> Recruiter Mode Enabled! Top 6 projects highlighted.', true);
+            if (showToast && typeof p2ShowToastNotification === 'function') {
+                p2ShowToastNotification('<i class="fa-solid fa-user-tie"></i> Recruiter Mode Briefing Active!', true);
+            }
         } else {
             body.classList.remove('p2-recruiter-mode-active');
             if (navBtnText) navBtnText.textContent = 'Recruiter Mode';
             if (heroContainer) {
                 heroContainer.style.display = 'none';
             }
+            if (recruiterModal) {
+                recruiterModal.style.display = 'none';
+            }
 
             document.querySelectorAll('.project-card').forEach(card => {
                 card.classList.remove('p2-recruiter-highlight');
             });
 
-            p2ShowToastNotification('<i class="fa-solid fa-rotate-left"></i> Returned to Standard Portfolio View', false);
+            if (showToast && typeof p2ShowToastNotification === 'function') {
+                p2ShowToastNotification('<i class="fa-solid fa-rotate-left"></i> Returned to Standard Portfolio View', false);
+            }
         }
     }
 
