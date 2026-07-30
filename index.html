@@ -1438,6 +1438,52 @@
 
     <!-- Inline Failsafe Modal & Command Engine Script -->
     <script>
+        // Global Failsafe Recruiter & Customizer Handlers
+        window.p2ToggleRecruiterMode = function() {
+            var modal = document.getElementById('p2RecruiterModal');
+            var banner = document.getElementById('p2RecruiterHeroBanner');
+            var body = document.body;
+            var navBtnText = document.getElementById('p2NavRecruiterText');
+            
+            if (!modal) return;
+
+            var isHidden = (modal.style.display === 'none' || !modal.style.display);
+            if (isHidden) {
+                modal.style.display = 'block';
+                if (banner) banner.style.display = 'block';
+                body.classList.add('p2-recruiter-mode-active');
+                if (navBtnText) navBtnText.textContent = 'Exit Recruiter Mode';
+                
+                var topIds = ['4', '6', '12', '5', '1', '11'];
+                document.querySelectorAll('.project-card').forEach(function(card) {
+                    var id = card.getAttribute('data-id');
+                    if (topIds.indexOf(id) !== -1) {
+                        card.classList.add('p2-recruiter-highlight');
+                    }
+                });
+            } else {
+                modal.style.display = 'none';
+                if (banner) banner.style.display = 'none';
+                body.classList.remove('p2-recruiter-mode-active');
+                if (navBtnText) navBtnText.textContent = 'Recruiter Mode';
+                
+                document.querySelectorAll('.project-card').forEach(function(card) {
+                    card.classList.remove('p2-recruiter-highlight');
+                });
+            }
+        };
+
+        window.p2OpenResumeCustomizer = function() {
+            var modal = document.getElementById('p2ResumeCustomizerModal');
+            if (modal) modal.style.display = 'block';
+            if (typeof p2SelectResumeRole === 'function') p2SelectResumeRole('aiml');
+        };
+
+        window.p2CloseResumeCustomizer = function() {
+            var modal = document.getElementById('p2ResumeCustomizerModal');
+            if (modal) modal.style.display = 'none';
+        };
+
         function toggleAIConsole() {
             var m = document.getElementById('aiConsoleModal');
             if (!m) return;
