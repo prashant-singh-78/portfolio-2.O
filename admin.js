@@ -7,10 +7,10 @@
 (function () {
     'use strict';
 
-    // Secure SHA-256 Hash of Admin Secret Password (Prashant#AI2026!Secure)
-    const ADMIN_USER_ID = 'prashant_admin_78';
-    const ADMIN_EMAIL_ID = 'prashant.admin@portfolio2.io';
-    const SECURE_PASS_HASH = '96efd90ca8b06e472344e5175c2314938612d71fb2fc1c1355f5cc14d9047f42';
+    // Secure SHA-256 Hash of Admin Secret Password (prash7878@#)
+    const ADMIN_USER_ID = 'prashantking0880';
+    const ADMIN_EMAIL_ID = 'prashantking0880@gmail.com';
+    const SECURE_PASS_HASH = '34768353a44e9be5294e82c81c15b319dfd60e663d24b46ae897d721b47dba7c';
     
     // Session Timeout: 2 Hours (7200000 ms)
     const SESSION_DURATION = 7200000;
